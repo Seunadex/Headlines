@@ -6,22 +6,30 @@ const APP_DIR = path.resolve(__dirname, 'src');
 
 module.exports = {
 	devtool: 'inline-source-map',
-	entry: APP_DIR + '/main.jsx',
-	output: {
+	entry: [
+		'webpack-dev-server/client?http://localhost:8080',
+		'webpack/hot/only-dev-server',
+		APP_DIR + '/main.jsx'
+		],
+	devServer: {
+		compress: true,
+		hot: true,
+	},
+		output: {
 			path: BUILD_DIR,
 			filename: 'bundle.js',
 	},
-	resolve: {
-		extensions: ['.js', '.jsx']
-	},
+	 resolve: {
+    extensions: ['.js', '.jsx']
+  },
 	
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.jsx?$/,
 				include: APP_DIR,
 				exclude: /node_modules/,
-				loaders: ['react-hot-loader','babel-loader?presets[]=react,presets[]=es2015']
+				loader: ['babel-loader']
 			},
 			{
 				test: /\.scss$/,
