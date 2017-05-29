@@ -1,0 +1,43 @@
+$bgColor: #3356df;
+$aqua: #7fD8FF;
+$blue: #007409;
+$navy: #001F3F;
+$teal: #39cccc;
+$olive: #309970;
+$white: #fff;
+
+
+.loginbody {
+	padding-top: 100px;
+	padding-bottom: 240px;
+	width: 100%;
+	font-family: 'Lobster', cursive;
+	color: $teal;
+	background-color: $bgColor;
+	h1 {
+		text-transform: uppercase;
+		font-size: 80px;
+		text-shadow: 2px 2px 3px $navy;
+	}
+
+}
+
+.login-para {
+	font-size: 35px;
+	color: maroon;
+}
+
+img {
+	height: 50px;
+	width: 200px;
+
+}
+
+.footer {
+	color: $white;
+	padding: 10px 0px;
+}
+
+.navbar-inverse {
+	height: 40px;
+}
