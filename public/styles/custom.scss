@@ -22,6 +22,10 @@ $white: #fff;
 
 }
 
+.navtop {
+	height: 60px;
+}
+
 .login-para {
 	font-size: 35px;
 	color: maroon;
@@ -41,3 +45,34 @@ img {
 .navbar-inverse {
 	height: 40px;
 }
+
+
+.search-feed {
+	margin-top: 20px auto 20px auto;
+	width: 400px;
+	
+}
+
+.search-bar:focus {
+		border: none;
+		border-bottom: 2px solid #3356df;
+
+	}
+
+.article-frame {
+	margin: 10px;
+	width: 28%;
+}
+
+.article-frame:hover {
+		box-shadow: 2px 3px 3px #3356df;
+		border-radius: 5px;
+
+	}
+	a {
+		text-decoration: none;
+	}
+
+
+
+
