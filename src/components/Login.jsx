@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 import createHistory from 'history/createBrowserHistory';
 import User from '../model/User';
-import Footer from './layout/Footer.jsx'
 
 const history = createHistory({
 	forceRefresh: true,
@@ -41,7 +40,6 @@ class Login extends Component {
 						</GoogleLogin>
 					</div>
 				</div>
-					<div><Footer /></div>
 			</div>
 		);
 
