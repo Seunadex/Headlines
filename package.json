@@ -11,17 +11,24 @@
   "author": "Seun Adekunle",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.1",
+    "babel-cli": "^6.24.1",
     "dotenv": "^4.0.0",
     "dotenv-webpack": "^1.4.5",
     "express": "^4.15.3",
+    "file-loader": "^0.11.1",
+    "flux": "^3.1.2",
     "history": "^4.6.1",
     "js-cookie": "^2.1.4",
+    "keymirror": "^0.1.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-google-login": "^2.8.9",
-    "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1"
+    "react-router": "^3.0.5",
+    "react-router-dom": "^4.1.1",
+    "react-tap-event-plugin": "^2.0.1",
+    "reactstrap": "^4.6.2"
   },
   "devDependencies": {
     "babel": "^6.23.0",
