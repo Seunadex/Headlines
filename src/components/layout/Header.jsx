@@ -5,11 +5,9 @@ import User from '../../model/User';
  *@returns {*} element to be rendered
  */
 function Header() {
-  const fullName = User.name.split(' ');
-
   return (
     <div className="navtop">
-      <nav className="navbar">
+      <nav className="navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
             <button
@@ -31,7 +29,7 @@ function Header() {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="nohover">
-                <a classID> Welcome, {fullName}</a>
+                Welcome
               </li>
               <li className="logoutbtn">
                 <a href="/#/logout">
