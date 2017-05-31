@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.jsx';
-import Login from './components/Login.jsx';
+import App from './components/App';
+import Login from './components/Login';
 import '../public/styles/custom.scss';
 import {
 	BrowserRouter as Router,

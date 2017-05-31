@@ -24,7 +24,7 @@ module.exports = {
   },
 	
 	module: {
-		rules: [
+		loader: [
 			{
 				test: /\.jsx?$/,
 				include: APP_DIR,
