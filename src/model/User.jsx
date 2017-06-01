@@ -17,13 +17,14 @@ class User {
    */
   login(response) {
     const user = response.w3;
-    Cookies.set('new_feed', {
+    Cookies.set('news_feed', {
       name: user.ig,
       email: user.U3,
       imageUrl: user.Paa,
     });
     this.isLogin = true;
     this.userDetails();
+    console.log(Cookies.get('news_feed'));
   }
   /**
    * @description logs the user out.
