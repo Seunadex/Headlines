@@ -26,7 +26,7 @@ class SourcesAttributes {
    *
    * @memberof SourcesAttributes
    */
-  add(index, id, name, description, category, sortBysAvailable) {
+  add(index, id, name, description, category, sortBysAvailable, urlsToLogos) {
     this.sources.push({
       href: `/articles/${id}`,
       id: index,
@@ -35,6 +35,7 @@ class SourcesAttributes {
       category,
       title: name,
       sortBysAvailable,
+      urlsToLogos,
     });
   }
 

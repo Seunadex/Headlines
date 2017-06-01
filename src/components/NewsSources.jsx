@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { browserHistory } from 'react-router';
-import { InputGroup, Input, Card, CardText, CardTitle, Container, Row, Col, Button } from 'reactstrap';
+import { InputGroup, Input, Card,CardImg ,CardBlock, CardText, CardTitle, Container, Row, Col, Button } from 'reactstrap';
 import newsSourcesStore from '../stores/NewsSourcesStore';
 import NewsActions from '../actions/NewsActions';
 import Header from './layout/Header.jsx';
@@ -55,11 +55,8 @@ class NewsSources extends Component {
   }
 
   /**
-   * 
    *  @desc represents a life cycle state of this component. 
    * It updates the state of this component when it is rendered.
-   * 
-   * @memberof NewsSources
    */
   componentDidMount() {
     newsSourcesStore.addChangeListener(this.onChange);
@@ -71,12 +68,9 @@ class NewsSources extends Component {
   }
 
   /**
-   * 
-   * @desc links the state of the sources proprty of
+   * @desc links the state of the sources property of
    *  this component to the state of the news sources store.
-   * 
    * @returns {object} array of news sources
-   * 
    * @memberof NewsSources
    */
   getNewsSources() {
@@ -86,11 +80,9 @@ class NewsSources extends Component {
   }
 
   /**
-   * 
-   * @desc update state of search property
+   * @desc update the state of search property
    * @param {function} event represents the onchange event
    *  that triggers change in user inpiut on the search bar.
-   * 
    * @memberof NewsSources
    */
   updateSearch(event) {
@@ -121,25 +113,23 @@ class NewsSources extends Component {
            handleSearch={this.updateSearch.bind(this)} />
         </Container>
         <Container>
-        
-        <Row className="card-row justify-content-center">
-          {filteredSources.map(source => (
+          <Row className="card-row justify-content-center">
+            {filteredSources.map(source => (
             
-            <Col xs="12" sm="6" md="4" className="tile" key={source.id}>
-              <Card
-                block
-                className="bl"  color="info"
-              >
-                <CardTitle>{source.title}</CardTitle>
-
-                <CardText className="desc">{source.description}</CardText>
+            <Col xs="12" sm="6" md="4" key={source.id}>
+            <Card className="card">
+              <CardTitle className="text-center"><h2>{source.title}</h2></CardTitle>
+              <CardBlock>
+                <CardText>{source.description}</CardText>
                 <div className="float-left">
-                <CardText className="category">{source.category}</CardText></div>
+                  <CardText className="category"><span>Category  <i className="fa fa-angle-right" aria-hidden="true"></i> {source.category}</span></CardText>
+                </div>
                 <div className="float-right">
-                 <Button color="info" className="Read" 
-                 onClick={this.getSortValue.bind(this, `${source.href}/${source.sortBysAvailable}`)}
-                 >Read</Button>
-                 </div>
+                  <Button color="info" className="view" 
+                   onClick={this.getSortValue.bind(this, `${source.href}/${source.sortBysAvailable}`)}
+                  >View Headlines</Button>
+                </div>
+                </CardBlock>
               </Card>
             </Col>
           ))}
@@ -178,6 +168,13 @@ Col.propTypes = {
   xs: columnProps,
   sm: columnProps,
   md: columnProps,
-}
+};
+
+CardBlock.propTypes = {
+  // Pass in a Component to override default element
+  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  className: PropTypes.string
+};
+
 
 export default NewsSources;

@@ -103,12 +103,12 @@ class NewsArticles extends Component {
       <div>
       	<Header />
         <Container>
-        <Row className="art-head">
-          <Col xs="6" md="4"> 
-            <h1>{params.id}</h1>
+        <Row>
+          <Col xs="12" md="4"> 
+            <h1 className="params-uppercase">{params.id}</h1>
           </Col>
 
-          <Col xs="6" md="4" className="right">
+          <Col xs="6" sm="6" md="4">
             <Form className="order">
               <FormGroup>
                 <Input type="select" name="select" id="exampleSelect" onChange={this.handleSort.bind(this)}>
@@ -128,25 +128,25 @@ class NewsArticles extends Component {
         </Container>
 
 
-        <Container-fluid>
-        <Row className="justify-content-center">
+        <Container className="justify-content-center">
+        <Row>
           {this.state.articles.map((news) => {
-            const cssStyle = {
-              height: '170px',
+            const myStyle = {
+              height: '190px',
               background: `url(${news.image}) center center`,
-              width: '60%',
+              width: '100%',
               backgroundSize: 'cover',
             };
 
             return ( 
             <a href={news.href} rel="noopener noreferrer" target="_blank" >
             <Col xs="12" sm="6" md="4" className="article-frame">
-                <Card className="headline">
+                <Card>
                   <CardBlock>
                     <CardTitle className="title">{news.meta}</CardTitle>
-                    <CardSubtitle className="subtitle">{news.header}</CardSubtitle>
+                    <CardSubtitle>{news.header}</CardSubtitle>
                   </CardBlock>
-                  <div style={cssStyle} />
+                  <div style={myStyle} />
                   <CardBlock>
                     <CardText>{news.description}</CardText>
                   </CardBlock>
@@ -156,7 +156,7 @@ class NewsArticles extends Component {
             );
           })}
         </Row>
-       </Container-fluid>
+       </Container>
       </div>
     );
   }
