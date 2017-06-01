@@ -5,6 +5,7 @@ $navy: #001F3F;
 $teal: #39cccc;
 $olive: #309970;
 $white: #fff;
+$sky_blue: #5bc0de;
 
 
 .loginbody {
@@ -20,6 +21,10 @@ $white: #fff;
 		text-shadow: 2px 2px 3px $navy;
 	}
 
+}
+
+.nohover {
+	margin-top: 10px;
 }
 
 .navtop {
@@ -53,25 +58,55 @@ img {
 	
 }
 
+.params-uppercase {
+	text-transform: capitalize;
+	text-shadow: 1px 2px 2px black;
+}
+
 .search-bar:focus {
 		border: none;
 		border-bottom: 2px solid #3356df;
 
 	}
-
+$width: 30%;
 .article-frame {
-	margin: 10px;
-	width: 28%;
+	margin: 16px;
+	width: $width;
+	height: 400px;
+	box-shadow: 1px 1px 1px $sky_blue;
+	border-radius: 5px;
+	&:hover {
+		box-shadow: 2px 3px 3px $sky_blue;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
 }
 
-.article-frame:hover {
-		box-shadow: 2px 3px 3px #3356df;
-		border-radius: 5px;
-
-	}
 	a {
 		text-decoration: none;
 	}
+
+	.footer {
+		font-size: 12px;
+	}
+
+	.card {
+		height: 300px;
+		box-shadow: 1px 2px 2px $sky_blue;
+
+	}
+	.view {
+		border-radius: 5px;
+		margin-left: 20px;
+		text-shadow: 1px 1px 1px black;
+		&:hover{
+			background-color: #fff;
+			color: $sky_blue;
+		}
+	}
+
+
 
 
 
