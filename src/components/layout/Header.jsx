@@ -5,6 +5,9 @@ import User from '../../model/User';
  *@returns {*} element to be rendered
  */
 function Header() {
+  const fullName = User.name.split(' ');
+  const firstName = fullName[0];
+  console.log(firstName);
   return (
     <div className="navtop">
       <nav className="navbar-inverse">
@@ -29,9 +32,9 @@ function Header() {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="nohover">
-                Welcome
+                <a><i className="fa fa-user-circle" aria-hidden="true"></i> {firstName}</a>
               </li>
-              <li className="logoutbtn">
+              <li>
                 <a href="/#/logout">
                   <span className="glyphicon glyphicon-log-out" />
                   Log Out

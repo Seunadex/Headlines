@@ -4,8 +4,9 @@ import { browserHistory } from 'react-router';
 import { InputGroup, Input, Card,CardImg ,CardBlock, CardText, CardTitle, Container, Row, Col, Button } from 'reactstrap';
 import newsSourcesStore from '../stores/NewsSourcesStore';
 import NewsActions from '../actions/NewsActions';
-import Header from './layout/Header.jsx';
-import Search from './NewsSearch.jsx';
+import Header from './layout/Header';
+import Footer from './layout/Footer'
+import Search from './NewsSearch';
 
 
 /**
@@ -30,6 +31,7 @@ class NewsSources extends Component {
 
     this.getNewsSources = this.getNewsSources.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
 /**
@@ -39,19 +41,6 @@ class NewsSources extends Component {
  * */
   getInitialSourcesState() {
     return getNewsSources();
-  }
-
-/**
- * @function
- * @returns {object} array
- * @description update sources state by listening for 
- * change in the state of the sources store.
- * */
-  onChange() {
-    const SourcesState = this.getNewsSources();
-    this.setState({
-      sources: SourcesState.sources || [],
-    });
   }
 
   /**
@@ -65,6 +54,19 @@ class NewsSources extends Component {
 
   componentWillUnMount() {
     newsSourcesStore.removeChangeListener(this.onChange);
+  }
+
+  /**
+ * @function
+ * @returns {object} array
+ * @description update sources state by listening for 
+ * change in the state of the sources store.
+ * */
+  onChange() {
+    const SourcesState = this.getNewsSources();
+    this.setState({
+      sources: SourcesState.sources || [],
+    });
   }
 
   /**
@@ -82,7 +84,7 @@ class NewsSources extends Component {
   /**
    * @desc update the state of search property
    * @param {function} event represents the onchange event
-   *  that triggers change in user inpiut on the search bar.
+   *  that triggers change in user input on the search bar.
    * @memberof NewsSources
    */
   updateSearch(event) {
@@ -118,7 +120,7 @@ class NewsSources extends Component {
             
             <Col xs="12" sm="6" md="4" key={source.id}>
             <Card className="card">
-              <CardTitle className="text-center"><h2>{source.title}</h2></CardTitle>
+              <div className="text-center"><h2>{source.title}</h2></div>
               <CardBlock>
                 <CardText>{source.description}</CardText>
                 <div className="float-left">
@@ -135,7 +137,7 @@ class NewsSources extends Component {
           ))}
         </Row>
         </Container>
-
+        <Footer />
       </div>
     );
   }

@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import Header from './layout/Header.jsx';
 import newsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
+import Share from './SocialShare';
 
 
 /**
  * represents the NewsArticles component
- * 
  * @class NewsArticles
  * @extends {Component}
  */
@@ -17,7 +17,6 @@ class NewsArticles extends Component {
 
   /**
    * Creates an instance of NewsArticles with an articles property.
-   * 
    * @memberof NewsArticles
    */
   constructor() {
@@ -151,12 +150,14 @@ class NewsArticles extends Component {
                     <CardText>{news.description}</CardText>
                   </CardBlock>
                 </Card>
+                 <Share share={news.href} title={news.header} />
               </Col>
              </a>
             );
           })}
         </Row>
        </Container>
+       <Footer />
       </div>
     );
   }
