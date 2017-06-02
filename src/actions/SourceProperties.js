@@ -2,13 +2,13 @@
  * @desc contains methods that extract relevant fields
  * from the data received the news API.
  *
- * @class SourcesAttributes
+ * @class SourceProperties
  */
-class SourcesAttributes {
+class SourceProperties {
   /**
-   * Creates an instance of SourcesAttributes with a sources property.
+   * Creates an instance of SourceProperties with a sources property.
    *
-   * @memberof SourcesAttributes
+   * @memberof SourceProperties
    */
   constructor() {
     this.sources = [];
@@ -24,9 +24,9 @@ class SourcesAttributes {
    * @param {string} category represents the category of news primarily covered by the news source.
    * @param {string} sortBysAvailable represents the sort options available on this news source.
    *
-   * @memberof SourcesAttributes
+   * @memberof SourceProperties
    */
-  add(index, id, name, description, category, sortBysAvailable, urlsToLogos) {
+  add(index, id, name, description, category, sortBysAvailable) {
     this.sources.push({
       href: `/articles/${id}`,
       id: index,
@@ -35,7 +35,6 @@ class SourcesAttributes {
       category,
       title: name,
       sortBysAvailable,
-      urlsToLogos,
     });
   }
 
@@ -44,7 +43,7 @@ class SourcesAttributes {
    *
    * @returns {object} array containing all news sources
    *
-   * @memberof SourcesAttributes
+   * @memberof SourceProperties
    */
   get() {
     return this.sources;
@@ -52,4 +51,4 @@ class SourcesAttributes {
 
 }
 
-export default SourcesAttributes;
+export default SourceProperties;
