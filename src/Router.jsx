@@ -34,7 +34,7 @@ const App = () =>
         <Router history={hashHistory}>
         		<Route exact path="/" component={NewsSources} onEnter={requireAuth}>
              <Route path="/articles/:id/:sort" component={NewsArticles} onEnter={requireAuth} />
-     	 	</Route>
+     	 			</Route>
       		<Route path="/login" component={Login} onEnter={checkAuth}/>
       		<Route path="/logout" component={Logout} />
          </Router>

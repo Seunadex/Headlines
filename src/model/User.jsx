@@ -24,7 +24,6 @@ class User {
     });
     this.isLogin = true;
     this.userDetails();
-    console.log(Cookies.get('news_feed'));
   }
   /**
    * @description logs the user out.

@@ -4,7 +4,7 @@ import User from '../../model/User';
  *@description header element
  *@returns {*} element to be rendered
  */
-function Header() {
+const Header = () => {
   const fullName = User.name.split(' ');
   const firstName = fullName[0];
   console.log(firstName);
@@ -14,7 +14,7 @@ function Header() {
         <div className="container-fluid">
           <div className="navbar-header">
             <button
-              type="button"
+              type="button" 
               className="navbar-toggle collapsed"
               data-toggle="collapse"
               data-target="#bs" aria-expanded="false"

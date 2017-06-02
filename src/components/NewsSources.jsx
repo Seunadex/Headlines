@@ -5,7 +5,7 @@ import { InputGroup, Input, Card,CardImg ,CardBlock, CardText, CardTitle, Contai
 import newsSourcesStore from '../stores/NewsSourcesStore';
 import NewsActions from '../actions/NewsActions';
 import Header from './layout/Header';
-import Footer from './layout/Footer'
+import Footer from './layout/Footer';
 import Search from './NewsSearch';
 
 
@@ -122,7 +122,7 @@ class NewsSources extends Component {
             <Card className="card">
               <div className="text-center"><h2>{source.title}</h2></div>
               <CardBlock>
-                <CardText>{source.description}</CardText>
+                <CardText className="description">{source.description}</CardText>
                 <div className="float-left">
                   <CardText className="category"><span>Category  <i className="fa fa-angle-right" aria-hidden="true"></i> {source.category}</span></CardText>
                 </div>
