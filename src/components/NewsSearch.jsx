@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Input, InputGroup, Row } from 'reactstrap';
+import { Input, InputGroup, Row, InputGroupAddon } from 'reactstrap';
 
 
 /**
@@ -12,11 +12,8 @@ class Search extends React.Component {
     return (
       <Row className="search-feed">
         <InputGroup className="searchBar">
-          <Input
-          className="app-input" placeholder="Search"
-          value={this.props.searchValue} onChange={this.props.handleSearch}
-          />
-            <i className="fa fa-search search-icon" aria-hidden="true"></i>
+          <InputGroupAddon><i className="fa fa-search search-icon" aria-hidden="true"></i></InputGroupAddon>
+          <Input className="app-input" placeholder="Quick Search" value={this.props.searchValue} onChange={this.props.handleSearch} />
           </InputGroup>
       </Row>
     )
