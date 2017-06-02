@@ -46,6 +46,12 @@ img {
 	height: 40px;
 }
 
+.img-circle {
+	width: 30px;
+	height: 30px;
+	margin-top: 5px;
+}
+
 /*end*/
 
 .footer {
@@ -79,7 +85,10 @@ img {
 	.float-left {
 		float: left;
 		margin-left: 10px;
+		color: $sky_blue;
 	}
+
+
 
 	/*end*/
 
@@ -108,9 +117,11 @@ $width: 30%;
 		text-decoration: none;
 	}
 
-	.card {
+	.card-row {
 		height: 250px;
 		box-shadow: 1px 2px 2px $sky_blue;
+		margin-top: 50px;
+		padding-bottom: 30px;
 
 	}
 	.view {
