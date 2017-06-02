@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import { InputGroup, Input, Card,CardImg ,CardBlock, CardText, CardTitle, Container, Row, Col, Button } from 'reactstrap';
 import newsSourcesStore from '../stores/NewsSourcesStore';
 import NewsActions from '../actions/NewsActions';
@@ -31,7 +31,7 @@ class NewsSources extends Component {
 
     this.getNewsSources = this.getNewsSources.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.updateSearch = this.updateSearch.bind(this);
+
   }
 
 /**
@@ -99,14 +99,13 @@ class NewsSources extends Component {
    * @memberof NewsSources
    */
   getSortValue(href) {
-    browserHistory.push(href);
+    hashHistory.push(href);
   }
 
 // render function
   render() {
     const filteredSources = this.state.sources.filter(source => source.title.toLowerCase()
     .indexOf(this.state.search.toLowerCase()) !== -1);
-
     return (
       <div>
         <Header />
@@ -115,16 +114,16 @@ class NewsSources extends Component {
            handleSearch={this.updateSearch.bind(this)} />
         </Container>
         <Container>
-          <Row className="card-row justify-content-center">
+          <Row className="justify-content-center">
             {filteredSources.map(source => (
-            
+
             <Col xs="12" sm="6" md="4" key={source.id}>
-            <Card className="card">
+            <Card className="card-row">
               <div className="text-center"><h2>{source.title}</h2></div>
               <CardBlock>
                 <CardText className="description">{source.description}</CardText>
                 <div className="float-left">
-                  <CardText className="category"><span>Category  <i className="fa fa-angle-right" aria-hidden="true"></i> {source.category}</span></CardText>
+                  <CardText className="category"><span>Category  <i className="fa fa-angle-double-right" aria-hidden="true"></i> {source.category}</span></CardText>
                 </div>
                 <div className="float-right">
                   <Button color="info" className="view" 

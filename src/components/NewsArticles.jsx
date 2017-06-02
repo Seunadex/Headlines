@@ -3,6 +3,7 @@ import { Form, FormGroup, Input, Card, CardText, CardBlock,
   CardTitle, CardSubtitle, Row, Col, Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Header from './layout/Header.jsx';
+import Footer from './layout/Footer.jsx';
 import newsStore from '../stores/NewsStore';
 import NewsActions from '../actions/NewsActions';
 import Share from './SocialShare';
@@ -108,9 +109,9 @@ class NewsArticles extends Component {
           </Col>
 
           <Col xs="6" sm="6" md="4">
-            <Form className="order">
+            <Form>
               <FormGroup>
-                <Input type="select" name="select" id="exampleSelect" onChange={this.handleSort.bind(this)}>
+                <Input type="select" name="select" onChange={this.handleSort.bind(this)}>
                   {option}
                 </Input>
               </FormGroup>
@@ -118,7 +119,7 @@ class NewsArticles extends Component {
           </Col>
 
           <Col xs="6" md="4" className="back">
-              <a className="" href="/"><i className="fa fa-angle-double-left icon-back" 
+              <a href="/"><i className="fa fa-angle-double-left icon-back" 
               aria-hidden="true">
               </i> Back</a>
           </Col>

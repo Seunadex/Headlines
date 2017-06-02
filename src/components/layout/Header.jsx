@@ -6,6 +6,7 @@ import User from '../../model/User';
  */
 const Header = () => {
   const fullName = User.name.split(' ');
+  const image = User.imageUrl;
   const firstName = fullName[0];
   console.log(firstName);
   return (
@@ -32,12 +33,15 @@ const Header = () => {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="nohover">
-                <a><i className="fa fa-user-circle" aria-hidden="true"></i> {firstName}</a>
+                <a><i className="fa fa-user" aria-hidden="true"></i> {firstName}</a>
+              </li>
+              <li>
+                <img src={image} alt="img" className="img-circle" />
               </li>
               <li>
                 <a href="/#/logout">
                   <span className="glyphicon glyphicon-log-out" />
-                  Log Out
+                  Sign Out
                 </a>
               </li>
             </ul>

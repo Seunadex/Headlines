@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route,IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 import Header from './components/layout/Header.jsx';
 import Footer from './components/layout/Footer.jsx';
 import Login from './components/Login.jsx';
@@ -32,11 +32,10 @@ const App = () =>
    (
       <div>
         <Router history={hashHistory}>
-        		<Route exact path="/" component={NewsSources} onEnter={requireAuth}>
-             <Route path="/articles/:id/:sort" component={NewsArticles} onEnter={requireAuth} />
-     	 			</Route>
-      		<Route path="/login" component={Login} onEnter={checkAuth}/>
-      		<Route path="/logout" component={Logout} />
+        		<Route path="/" component={NewsSources} onEnter={requireAuth}/>
+        			<Route path="/articles/:id/:sort" component={NewsArticles} onEnter={requireAuth} />
+        		<Route path="/login" component={Login} onEnter={checkAuth}/>
+          <Route path="/logout" component={Logout} />
          </Router>
        </div>
   );

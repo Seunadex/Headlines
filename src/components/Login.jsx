@@ -11,7 +11,7 @@ const history = createHistory({
 class Login extends Component {
 	componentWillMount() {
 		if (User.isLogin) {
-			history.push('/home');
+			history.push('/');
 		}
 	}
 
