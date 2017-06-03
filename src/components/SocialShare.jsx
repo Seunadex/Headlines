@@ -12,13 +12,14 @@ const {
 	LinkedinShareButton,
 } = ShareButtons;
 
-// const {
-// 	TwitterShareCount,
-// 	FacebookShareCount,
-// 	GooglePlusShareCount,
-// 	LinkedinShareCount,
-// } = ShareCounts;
-
+/**
+*const {
+*	TwitterShareCount,
+*	FacebookShareCount,
+*	GooglePlusShareCount,
+*	LinkedinShareCount,
+*} = ShareCounts;
+**/
 
 const TwitterIcon = generateShareIcon('twitter');
 const FacebookIcon = generateShareIcon('facebook');
@@ -29,7 +30,7 @@ const Share = (props) => {
 		const shareUrl = props.share; 
 		const title =  props.title;
 	return (
-	<div className="share-container">
+	<div className="share-container row">
 		<div className="social-share">
 			<TwitterShareButton
 				url={shareUrl}
@@ -47,7 +48,7 @@ const Share = (props) => {
 				title={title}
 				className="share-button">
 				<FacebookIcon
-					size={32}
+					size={35}
 					round />
 			</FacebookShareButton>
 		</div>
