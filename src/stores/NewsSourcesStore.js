@@ -56,7 +56,7 @@ class NewsSourcesStore extends EventEmitter {
   /**
    *
    * @desc removes the listener added by addChangeListener,
-   * terminates commuincation with the sources componennt.
+   * terminates communication with the sources componennt.
    * @param {function} callback listens for request from the sources component to stop state update .
    * @returns {void}
    * @memberof NewsSourcesStore
@@ -69,7 +69,7 @@ const newsSourcesStore = new NewsSourcesStore();
 
 appDispatcher.register((payload) => {
   switch (payload.eventName) {
-    case NewsActionTypes.GET_SOURCES:
+    case NewsActionTypes.FETCH_SOURCES:
       newsSourcesStore.sources = payload.sources;
       newsSourcesStore.emitChange();
       break;

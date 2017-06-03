@@ -73,7 +73,7 @@ const newsStore = new NewsStore();
 appDispatcher.register((payload) => {
   switch (payload.eventName) {
 
-    case NewsActionTypes.GET_NEWS:
+    case NewsActionTypes.FETCH_NEWS:
       newsStore.news = payload.news;
       newsStore.emitChange();
       break;
