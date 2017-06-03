@@ -91,8 +91,8 @@ class NewsArticles extends Component {
   handleSort(event) {
     const { params } = this.props;
     event.preventDefault();
-    const val = event.target.value;
-    NewsActions.fetchNews(params.id, val);
+    const targetVal = event.target.value;
+    NewsActions.fetchNews(params.id, targetVal);
   }
 
   render() {
@@ -105,7 +105,7 @@ class NewsArticles extends Component {
         <Container>
         <Row>
           <Col xs="12" md="4"> 
-            <h1 className="params-uppercase">{params.id}</h1>
+            <h1 className="params-uppercase title">{params.id}</h1>
           </Col>
 
           <Col xs="6" sm="6" md="4">
@@ -130,7 +130,7 @@ class NewsArticles extends Component {
 
         <Container className="justify-content-center">
         <Row>
-          {this.state.articles.map((news) => {
+          {this.state.articles.map((news, index) => {
             const myStyle = {
               height: '190px',
               background: `url(${news.image}) center center`,
@@ -139,7 +139,7 @@ class NewsArticles extends Component {
             };
 
             return ( 
-            <a href={news.href} rel="noopener noreferrer" target="_blank" >
+            <a href={news.href} key={index} rel="noopener noreferrer" target="_blank" >
             <Col xs="12" sm="6" md="4" className="article-frame">
                 <Card>
                   <CardBlock>
@@ -153,6 +153,7 @@ class NewsArticles extends Component {
                 </Card>
                  <Share share={news.href} title={news.header} />
               </Col>
+
              </a>
             );
           })}

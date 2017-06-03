@@ -8,6 +8,7 @@ import Api from '../utils/Api';
 
 const NewsActions = {
 
+  // Articles
   fetchNews: (id, val) => {
     const source = val ? `${id}&sortBy=${val}` : `${id}`;
     Api.resetQuery();
@@ -28,7 +29,7 @@ const NewsActions = {
         });
 
         appDispatcher.dispatch({
-          eventName: NewsActionTypes.GET_NEWS,
+          eventName: NewsActionTypes.FETCH_NEWS,
           news: feeds.get(),
         });
       }
@@ -37,6 +38,7 @@ const NewsActions = {
     });
   },
 
+  // Sources
   fetchSources: () => {
     Api.resetQuery();
     const sourceProperties = new SourceProperties();
@@ -56,7 +58,7 @@ const NewsActions = {
         });
 
         appDispatcher.dispatch({
-          eventName: NewsActionTypes.GET_SOURCES,
+          eventName: NewsActionTypes.FETCH_SOURCES,
           sources: sourceProperties.get(),
         });
       }

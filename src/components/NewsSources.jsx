@@ -52,7 +52,7 @@ class NewsSources extends Component {
     NewsActions.fetchSources();
   }
 
-  componentWillUnMount() {
+  componentWillUnmount() {
     newsSourcesStore.removeChangeListener(this.onChange);
   }
 
@@ -119,7 +119,7 @@ class NewsSources extends Component {
 
             <Col xs="12" sm="6" md="4" key={source.id}>
             <Card className="card-row">
-              <div className="text-center"><h2>{source.title}</h2></div>
+              <div className="text-center title"><h2>{source.title}</h2></div>
               <CardBlock>
                 <CardText className="description">{source.description}</CardText>
                 <div className="float-left">
