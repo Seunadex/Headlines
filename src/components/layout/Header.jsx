@@ -8,7 +8,6 @@ const Header = () => {
   const fullName = User.name.split(' ');
   const image = User.imageUrl;
   const firstName = fullName[0];
-  console.log(firstName);
   return (
     <div className="navtop">
       <nav className="navbar-inverse">
