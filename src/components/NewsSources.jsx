@@ -123,7 +123,7 @@ class NewsSources extends Component {
               <CardBlock>
                 <CardText className="description">{source.description}</CardText>
                 <div className="float-left">
-                  <CardText className="category"><span>Category  <i className="fa fa-angle-double-right" aria-hidden="true"></i> {source.category}</span></CardText>
+                  <CardText className="category"><span><strong>Category</strong>  <i className="fa fa-angle-double-right" aria-hidden="true"></i> {source.category}</span></CardText>
                 </div>
                 <div className="float-right">
                   <Button color="info" className="view" 

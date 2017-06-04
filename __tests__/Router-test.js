@@ -4,6 +4,9 @@ import App from '../src/Router.jsx';
 
 
 describe('<App />', () => {
+	it('should properly run tests', () => {
+		expect(2).toBe(2);
+	});
   it('Should render one <App /> Component ', () => {
     const component = shallow(<App />);
     expect(component).toHaveLength(1);
