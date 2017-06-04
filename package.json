@@ -45,6 +45,7 @@
     "chai": "^4.0.1",
     "chai-enzyme": "^0.7.1",
     "cheerio": "^1.0.0-rc.1",
+    "coveralls": "^2.13.1",
     "css-loader": "^0.28.3",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
