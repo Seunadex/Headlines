@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
-import appDispatcher from '../dispatcher/AppDispatcher';
-import NewsActionTypes from '../constants/NewsActionTypes';
+import Dispatcher from '../dispatcher/AppDispatcher';
+import Constants from '../constants/Constants';
 
 
 const CHANGE_EVENT = 'change';
@@ -58,8 +58,7 @@ class NewsStore extends EventEmitter {
    *
    * @desc removes the listener added by addChangeListener,
    * terminates commincation with the articles component.
-   * @param {function} callback
-   * @returns {void}
+   * @param  callback
    * @memberof NewsStore
    */
   removeChangeListener(callback) {
@@ -70,10 +69,10 @@ class NewsStore extends EventEmitter {
 
 const newsStore = new NewsStore();
 
-appDispatcher.register((payload) => {
+Dispatcher.register((payload) => {
   switch (payload.eventName) {
 
-    case NewsActionTypes.FETCH_NEWS:
+    case Constants.FETCH_NEWS:
       newsStore.news = payload.news;
       newsStore.emitChange();
       break;

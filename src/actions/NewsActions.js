@@ -1,6 +1,6 @@
 import axios from 'axios';
-import NewsActionTypes from '../constants/NewsActionTypes';
-import appDispatcher from '../dispatcher/AppDispatcher';
+import Constants from '../constants/Constants';
+import Dispatcher from '../dispatcher/AppDispatcher';
 import SourceProperties from './SourceProperties';
 import NewsProperties from './NewsProperties';
 import Api from '../utils/Api';
@@ -8,28 +8,29 @@ import Api from '../utils/Api';
 
 const NewsActions = {
 
-  // Articles
+// Articles
   fetchNews: (id, val) => {
     const source = val ? `${id}&sortBy=${val}` : `${id}`;
     Api.resetQuery();
 
     Api.addQuery('source', source);
     return axios.get(Api.getLink()).then((response) => {
-      const feeds = new NewsProperties(); // initialize variable to news features
+     // initialize variable to news features
+      const feeds = new NewsProperties();
       const body = response.data;
       if (response.status === 200) {
         const articles = body.articles;
         articles.forEach((article) => {
-          feeds.add(article.title, 
-                    article.description, 
-                    article.author,
-                    article.url, 
-                    article.urlToImage
-            );
+          feeds.add(article.title,
+                article.description,
+                article.author,
+                article.url,
+                article.urlToImage,
+      );
         });
 
-        appDispatcher.dispatch({
-          eventName: NewsActionTypes.FETCH_NEWS,
+        Dispatcher.dispatch({
+          eventName: Constants.FETCH_NEWS,
           news: feeds.get(),
         });
       }
@@ -38,7 +39,7 @@ const NewsActions = {
     });
   },
 
-  // Sources
+// Sources
   fetchSources: () => {
     Api.resetQuery();
     const sourceProperties = new SourceProperties();
@@ -48,17 +49,17 @@ const NewsActions = {
         const body = response.data;
         const sources = body.sources;
         sources.forEach((source, index) => {
-          sourceProperties.add(index, 
-                              source.id, 
-                              source.name, 
-                              source.description,
-                              source.category, 
-                              source.sortBysAvailable
-                              );
+          sourceProperties.add(index,
+                         source.id,
+                         source.name,
+                         source.description,
+                         source.category,
+                         source.sortBysAvailable,
+                         );
         });
 
-        appDispatcher.dispatch({
-          eventName: NewsActionTypes.FETCH_SOURCES,
+        Dispatcher.dispatch({
+          eventName: Constants.FETCH_SOURCES,
           sources: sourceProperties.get(),
         });
       }

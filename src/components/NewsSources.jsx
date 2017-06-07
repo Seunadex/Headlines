@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { hashHistory } from 'react-router';
-import { InputGroup, Input, Card,CardImg ,CardBlock, CardText, CardTitle, Container, Row, Col, Button } from 'reactstrap';
+import { Card, CardBlock, CardText, Container, Row, Col, Button } from 'reactstrap';
 import newsSourcesStore from '../stores/NewsSourcesStore';
 import NewsActions from '../actions/NewsActions';
 import Header from './layout/Header';
@@ -10,8 +10,8 @@ import Search from './NewsSearch';
 
 
 /**
- * @desc represents NewsSources component 
- * 
+ * @desc represents NewsSources component
+ *
  * @class NewsSources
  * @extends {Component}
  */
@@ -19,7 +19,7 @@ class NewsSources extends Component {
 
   /**
    * Creates an instance of NewsSources.
-   * 
+   *
    * @memberof NewsSources
    */
   constructor() {
@@ -31,20 +31,20 @@ class NewsSources extends Component {
 
     this.getNewsSources = this.getNewsSources.bind(this);
     this.onChange = this.onChange.bind(this);
-
+    this.updateSearch = this.updateSearch.bind(this);
   }
 
 /**
  * @function
  * @returns {object} array
  * @description calls getNewsSources
- * */
+ **/
   getInitialSourcesState() {
     return getNewsSources();
   }
 
   /**
-   *  @desc represents a life cycle state of this component. 
+   *  @desc represents a life cycle state of this component.
    * It updates the state of this component when it is rendered.
    */
   componentDidMount() {
@@ -59,7 +59,7 @@ class NewsSources extends Component {
   /**
  * @function
  * @returns {object} array
- * @description update sources state by listening for 
+ * @description update sources state by listening for
  * change in the state of the sources store.
  * */
   onChange() {
@@ -92,10 +92,10 @@ class NewsSources extends Component {
   }
 
   /**
-   * 
+   *
    * @desc passes sort parameter via route
    * @param {string} href news sources id and sorttype are passed as a string.
-   * 
+   *
    * @memberof NewsSources
    */
   getSortValue(href) {
@@ -110,31 +110,41 @@ class NewsSources extends Component {
       <div>
         <Header />
         <Container>
-           <Search searchValue={this.state.search} 
-           handleSearch={this.updateSearch.bind(this)} />
+          <Search
+            searchValue={this.state.search}
+            handleSearch={this.updateSearch}
+          />
         </Container>
         <Container>
           <Row className="justify-content-center">
             {filteredSources.map(source => (
 
-            <Col xs="12" sm="6" md="4" key={source.id}>
-            <Card className="card-row">
-              <div className="text-center title"><h2>{source.title}</h2></div>
-              <CardBlock>
-                <CardText className="description">{source.description}</CardText>
-                <div className="float-left">
-                  <CardText className="category"><span><strong>Category</strong>  <i className="fa fa-angle-double-right" aria-hidden="true"></i> {source.category}</span></CardText>
-                </div>
-                <div className="float-right">
-                  <Button color="info" className="view" 
-                   onClick={this.getSortValue.bind(this, `${source.href}/${source.sortBysAvailable}`)}
-                  >View Headlines</Button>
-                </div>
-                </CardBlock>
-              </Card>
-            </Col>
+              <Col xs="12" sm="6" md="4" key={source.id}>
+                <Card className="card-row">
+                  <div className="text-center title"><h2>{source.title}</h2></div>
+                  <CardBlock>
+                    <CardText className="description">{source.description}</CardText>
+                    <div className="float-left">
+                      <CardText className="category">
+                        <span><strong>Category</strong>
+                          <i
+                            className="fa fa-angle-double-right"
+                            aria-hidden="true"
+                          /> {source.category}</span>
+                      </CardText>
+                    </div>
+                    <div className="float-right">
+                      <Button
+                        color="info"
+                        className="view"
+                        onClick={this.getSortValue.bind(this, `${source.href}/${source.sortBysAvailable}`)}
+                      >View Headlines</Button>
+                    </div>
+                  </CardBlock>
+                </Card>
+              </Col>
           ))}
-        </Row>
+          </Row>
         </Container>
         <Footer />
       </div>
@@ -161,8 +171,8 @@ const columnProps = PropTypes.oneOfType([
     size: PropTypes.oneOfType([PropTypes.bool, PropTypes.number, PropTypes.string]),
     push: stringOrNumberProp,
     pull: stringOrNumberProp,
-    offset: stringOrNumberProp
-  })
+    offset: stringOrNumberProp,
+  }),
 ]);
 
 Col.propTypes = {
@@ -174,8 +184,7 @@ Col.propTypes = {
 CardBlock.propTypes = {
   // Pass in a Component to override default element
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  className: PropTypes.string
+  className: PropTypes.string,
 };
-
 
 export default NewsSources;

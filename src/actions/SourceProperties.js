@@ -16,13 +16,13 @@ class SourceProperties {
 
   /**
    * @desc extract specific data fields from data received from the API end point.
-   * @param {string} index  represents the name of the news source.
+   * @param index  represents the name of the news source.
    *  Useful when iterating through the array of news sources.
-   * @param {string} id represents the name of the news source.
-   * @param {string} name represents the full name of the news source.
-   * @param {string} description represents a brief description of the news source.
-   * @param {string} category represents the category of news primarily covered by the news source.
-   * @param {string} sortBysAvailable represents the sort options available on this news source.
+   * @param id represents the name of the news source.
+   * @param name represents the full name of the news source.
+   * @param description represents a brief description of the news source.
+   * @param category represents the category of news primarily covered by the news source.
+   * @param sortBysAvailable represents the sort options available on this news source.
    *
    * @memberof SourceProperties
    */
