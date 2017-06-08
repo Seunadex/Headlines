@@ -1,13 +1,13 @@
 import newsStore from '../../src/stores/NewsStore';
-import NewsActionTypes from '../../src/constants/NewsActionTypes';
-import appDispatcher from '../../src/dispatcher/AppDispatcher';
+import Constants from '../../src/constants/Constants';
+import Dispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
 jest.dontMock('../../src/stores/NewsStore');
 
 describe('NewsStore', () => {
 	const fetchNews = { 
-				eventName: NewsActionTypes.FETCH_NEWS,
+				eventName: Constants.FETCH_NEWS,
 				news: [{
 					title: 'andela fellows', 
 					description: 'Checkout what Andela fellows are up to' }]
@@ -15,11 +15,11 @@ describe('NewsStore', () => {
 
 let callback;
 beforeEach(() => {
-	callback = appDispatcher.register.mock.calls[0][0];
+	callback = Dispatcher.register.mock.calls[0][0];
 });
 
 test('register a callback with th dispatcher', () => {
-	expect(appDispatcher.register.mock.calls.length).toBe(1);
+	expect(Dispatcher.register.mock.calls.length).toBe(1);
 });
 
 test('store initializes with no data', () => {
