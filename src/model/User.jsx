@@ -16,11 +16,11 @@ class User {
    * @returns {undefined} it returns no value
    */
   login(response) {
-    const user = response.w7;
+    const user = response.w3;
     Cookies.set('user_data', {
       name: user.ig,
-      email: user.mail,
-      imageUrl: user.img,
+      email: user.U3,
+      imageUrl: user.Paa,
     });
     this.isLogin = true;
     this.userDetails();
