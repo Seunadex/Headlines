@@ -15,15 +15,19 @@ module.exports = {
     "plugins": [
         "react"
     ],
+    
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
         "linebreak-style": [
             "error",
             "windows"
         ],
+        "react/jsx-no-bind": [
+        "enabled", {
+        "ignoreRefs": boolean || false,
+        "allowArrowFunctions": boolean || false,
+        "allowBind": boolean || false
+}],
+
         "quotes": [
             "error",
             "single"

@@ -17,7 +17,7 @@ class User {
    */
   login(response) {
     const user = response.w3;
-    Cookies.set('news_feed', {
+    Cookies.set('user_data', {
       name: user.ig,
       email: user.U3,
       imageUrl: user.Paa,
@@ -31,18 +31,21 @@ class User {
    */
   logOut() {
     this.isLogin = false;
-    Cookies.remove('news_feed');
+    Cookies.remove('user_data');
   }
   /**
    * @description assigns User values
    * @returns {boolean}  true or false
    */
   userDetails() {
-    if (Cookies.get('news_feed')) {
-      const details = JSON.parse(Cookies.get('news_feed'));
-      this.name = details.name;
-      this.email = details.email;
-      this.imageUrl = details.imageUrl;
+    if (Cookies.get('user_data')) {
+      /**
+       * user details to be treated as a JSON object
+       */
+      const data = JSON.parse(Cookies.get('user_data'));
+      this.name = data.name;
+      this.email = data.email;
+      this.imageUrl = data.imageUrl;
       return true;
     }
     return false;

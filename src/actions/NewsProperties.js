@@ -15,12 +15,11 @@ class NewsProperties {
 
   /**
    * @desc extracts title, description, image-url, and address from news source.
-   * @returns {void}
-   * @param {string} title  represents the headline title
-   * @param {string} description  represents a brief description of headline.
-   * @param {string} meta  represents the name of the news source.
-   * @param {string} link   represents the url to the original article or news.
-   * @param {string} image  represents the url for the cover image of the headline.
+   * @param title  represents the headline title
+   * @param description  represents a brief description of headline.
+   * @param meta  represents the name of the news source.
+   * @param link   represents the url to the original article or news.
+   * @param image  represents the url for the cover image of the headline.
    *
    * @memberof NewsProperties
    */
@@ -37,7 +36,6 @@ class NewsProperties {
   /**
    *
    * @desc returns the value of news property
-   * @returns {object} array
    *
    * @memberof NewsProperties
    */

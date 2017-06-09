@@ -1,6 +1,6 @@
 import { EventEmitter } from 'events';
-import appDispatcher from '../dispatcher/AppDispatcher';
-import NewsActionTypes from '../constants/NewsActionTypes';
+import Dispatcher from '../dispatcher/AppDispatcher';
+import Constants from '../constants/Constants';
 
 
 const CHANGE_EVENT = 'change';
@@ -57,7 +57,7 @@ class NewsSourcesStore extends EventEmitter {
    *
    * @desc removes the listener added by addChangeListener,
    * terminates communication with the sources componennt.
-   * @param {function} callback listens for request from the sources component to stop state update .
+   * @param callback use to stop state update listens for request from the sources component.
    * @returns {void}
    * @memberof NewsSourcesStore
    */
@@ -67,9 +67,9 @@ class NewsSourcesStore extends EventEmitter {
 }
 const newsSourcesStore = new NewsSourcesStore();
 
-appDispatcher.register((payload) => {
+Dispatcher.register((payload) => {
   switch (payload.eventName) {
-    case NewsActionTypes.FETCH_SOURCES:
+    case Constants.FETCH_SOURCES:
       newsSourcesStore.sources = payload.sources;
       newsSourcesStore.emitChange();
       break;

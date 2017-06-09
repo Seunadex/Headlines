@@ -14,10 +14,11 @@ const Header = () => {
         <div className="container-fluid">
           <div className="navbar-header">
             <button
-              type="button" 
+              type="button"
               className="navbar-toggle collapsed"
               data-toggle="collapse"
-              data-target="#bs" aria-expanded="false"
+              data-target="#bs"
+              aria-expanded="false"
             >
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar" />
@@ -32,7 +33,7 @@ const Header = () => {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li className="nohover">
-                <a><i className="fa fa-user" aria-hidden="true"></i> {firstName}</a>
+                <a><i className="fa fa-user" aria-hidden="true" /> {firstName}</a>
               </li>
               <li>
                 <img src={image} alt="img" className="img-circle" />
@@ -49,5 +50,5 @@ const Header = () => {
       </nav>
     </div>
   );
-}
+};
 export default Header;
