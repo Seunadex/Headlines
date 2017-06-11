@@ -5,6 +5,7 @@ import { mount, shallow } from 'enzyme';
 import NewsArticles from '../../src/components/NewsArticles';
 import User from '../../src/model/User';
 import Header from '../../src/components/layout/Header';
+import toJson from "enzyme-to-json";
 
 jest.dontMock('../../src/components/NewsArticles.jsx');
 

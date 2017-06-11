@@ -31,24 +31,27 @@ const Header = () => {
             <ul className="nav navbar-nav">
               <li><a href="/">Home</a></li>
             </ul>
-            <ul className="nav navbar-nav navbar-right">
-              <li className="nohover">
-                <a><i className="fa fa-user" aria-hidden="true" /> {firstName}</a>
+            <ul className="nav navbar-nav navbar-right">              <li>
+                <p>Logged in as: <i className="fa fa-user" aria-hidden="true" /> <strong>{firstName}</strong></p>
               </li>
-              <li>
-                <img src={image} alt="img" className="img-circle" />
-              </li>
-              <li>
+              <li className="dropdown">
+                <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img src={image} alt="img" className="img-circle" />
+                <span className="caret"></span></a>
+                <ul className="dropdown-menu">
+                   <li>
                 <a href="/#/logout">
                   <span className="glyphicon glyphicon-log-out" />
                   Sign Out
                 </a>
+              </li>
+                </ul>
               </li>
             </ul>
           </div>
         </div>
       </nav>
     </div>
+    
   );
 };
 export default Header;

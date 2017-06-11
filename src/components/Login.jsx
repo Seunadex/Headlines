@@ -10,6 +10,8 @@ const history = createHistory({
   forceRefresh: true,
 });
 
+const client_id = process.env.CLIENT_ID;
+
 
 class Login extends Component {
   componentWillMount() {
@@ -37,7 +39,7 @@ class Login extends Component {
 
             <GoogleLogin
               className="login"
-              clientId="869248524764-gq40n0trb23md1r6op4b2v23qgdb6bj6.apps.googleusercontent.com"
+              clientId={client_id}
               buttonText="Login"
               uxMode="popup"
               onSuccess={responseGoogle}

@@ -16,14 +16,14 @@ class User {
    * @returns {undefined} it returns no value
    */
   login(response) {
-    const user = response.w3;
+    const user = response.profileObj;
     Cookies.set('user_data', {
-      name: user.ig,
-      email: user.U3,
-      imageUrl: user.Paa,
+      name: user.name,
+      email: user.email,
+      imageUrl: user.imageUrl,
     });
     this.isLogin = true;
-    this.userDetails();
+    // this.userDetails();
   }
   /**
    * @description logs the user out.
@@ -50,6 +50,7 @@ class User {
     }
     return false;
   }
+  
 }
 export default new User();
 

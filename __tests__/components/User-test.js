@@ -7,7 +7,7 @@ describe('User model', () => {
 	});
 
 	it('should log in correctly', () => {
-		const response = { w3: { ig: 'seun', U3: 'spydee4real@gmail.com', Paa: 'www.imgurl.com'} };
+		const response = { profileObj: { name: 'seun', email: 'spydee4real@gmail.com', imageUrl: 'www.imgurl.com'} };
 		User.login(response);
 		expect(User.isLogin).to.not.equal(false);
 		expect(User.isLogin).to.equal(true);

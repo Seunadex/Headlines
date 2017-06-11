@@ -71,7 +71,6 @@ const newsStore = new NewsStore();
 
 Dispatcher.register((payload) => {
   switch (payload.eventName) {
-
     case Constants.FETCH_NEWS:
       newsStore.news = payload.news;
       newsStore.emitChange();

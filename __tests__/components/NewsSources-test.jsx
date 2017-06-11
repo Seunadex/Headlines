@@ -2,7 +2,8 @@ import React from 'react';
 import NewsSources from '../../src/components/NewsSources';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 
 chai.use(chaiEnzyme());
 const wrapper = shallow(<NewsSources />);

@@ -12,10 +12,6 @@ describe('Login component', () => {
 	it('should exist', () => {
 		expect(wrapper).to.be.present();
 	});
-	xit('renders heading', () => {
-		const heading = <div><h1>headlines</h1></div>
-		expect(wrapper.contains(heading)).toEqual(true);
-	});
 	it('should contain the right descendants(elements)', () => {
 		
 		expect(wrapper).to.have.descendants('div');
