@@ -57,7 +57,7 @@ class NewsStore extends EventEmitter {
   /**
    *
    * @desc removes the listener added by addChangeListener,
-   * terminates commincation with the articles component.
+   * terminates communication with the articles component.
    * @param  callback
    * @memberof NewsStore
    */
@@ -71,7 +71,6 @@ const newsStore = new NewsStore();
 
 Dispatcher.register((payload) => {
   switch (payload.eventName) {
-
     case Constants.FETCH_NEWS:
       newsStore.news = payload.news;
       newsStore.emitChange();

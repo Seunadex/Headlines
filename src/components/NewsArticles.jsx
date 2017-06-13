@@ -29,7 +29,7 @@ class NewsArticles extends Component {
   }
 
   /**
-   * @desc represents a life cycle state of this component. 
+   * @desc represents a life cycle state of this component.
    * It updates the state of this component when it is rendered.
    *
    */

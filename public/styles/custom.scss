@@ -9,8 +9,8 @@ $sky_blue: #5bc0de;
 $lobster: 'Lobster', cursive;
 
 @mixin move {
-	-webkit-transition: font-size 1s;
-		transition: font-size 1s;
+	-webkit-transition: font-size 0.5s;
+		transition: font-size 0.5s;
 }
 
 @mixin font {
@@ -18,11 +18,20 @@ $lobster: 'Lobster', cursive;
 }
 
 @mixin shadow{
-	box-shadow: 2px 2px 2px $sky_blue;
+	box-shadow: 2px 3px 2px $sky_blue;
 }
 
 
 /*Styling for the login page*/
+
+.btn {
+	border-radius: 5px;
+}
+a.btn {
+	padding: 7px 15px;
+	font-size: 20px;
+
+}
 
 .loginbody {
 	padding-top: 100px;
@@ -42,29 +51,30 @@ $lobster: 'Lobster', cursive;
 	font-size: 35px;
 	color: $teal;
 }
-
-img {
-	height: 50px;
-	width: 200px;
-
-}
 /*end*/
 
 /*Styling for the Navbar*/
 
 .navtop {
-	height: 60px;
+	height: 55px;
 }
 
 .navbar-inverse {
-	height: 40px;
+	height: 50px;
+}
+div.navbar-header {
+	height: 50px
 }
 
 .img-circle {
 	width: 30px;
 	height: 30px;
-	margin-top: 5px;
 }
+.navbar-nav>li>p {
+	margin-top: 15px;
+	margin-right: 10px;
+}
+
 
 /*end*/
 
@@ -73,33 +83,36 @@ img {
 	padding: 10px 0px;
 }
 
-
-
 /*styling for the news source*/
 .search-feed {
 	margin-top: 20px auto 20px auto;
 	width: 400px;
+	float: right;
 	
 }
 
 .description {
-	padding: 0px 10px;
+	padding: 0px 15px;
 }
 
-.search-bar:focus {
-		border: none;
-		border-bottom: 2px solid #3356df;
-	}
-
-	.float-right {
+.float-right {
 		float: right;
 		margin-right: 10px;
 	}
 
-	.float-left {
+.float-left {
 		float: left;
 		margin-left: 10px;
 		color: $sky_blue;
+	}
+
+.banner {
+		text-align: center;
+		margin-top: -5px;
+		@include font;
+		color: $sky_blue;
+		text-shadow: 0 0 4px $navy, 2px 2px 3px black;
+		margin-bottom: 30px;
 	}
 
 
@@ -111,12 +124,12 @@ $width: 30%;
 .article-frame {
 	margin: 16px;
 	width: $width;
-	height: 400px;
+	height: 450px;
 	@include shadow;
 	border-radius: 5px;
 	overflow: auto;
 	&:hover {
-		box-shadow: 4px 4px 6px $sky_blue;
+		box-shadow: 5px 5px 10px $sky_blue;
 		border-radius: 5px;
 		cursor: pointer;
 	}
@@ -137,7 +150,7 @@ $width: 30%;
 	}
 
 	.card-row {
-		height: 250px;
+		height: 270px;
 		@include shadow;
 		margin-top: 50px;
 		padding-bottom: 30px;
@@ -154,18 +167,25 @@ $width: 30%;
 	}
 
 	div.share-container {
-		margin-left: 30px;
+		margin-left: 20px;
 		text-align: center;
 	}
 
 	div.share-button {
 		margin-right: 20px;
 	}
+	.Demo__some-network__share-count {
+        margin-top: 3px;
+        font-size: 12px;
+		margin-right: 18px;
+      }
+
 
 	div.social-share {
 		display: inline-block;
 		&:hover {
 			font-size: 40px;
+			opacity: 0.75;
 	}
 }
 	div.face, div.twit, div.link, div.google {
@@ -180,6 +200,7 @@ $width: 30%;
 
 .footer {
 		font-size: 12px;
+		margin-top: 30px;
 	}
 
 	/*end*/
