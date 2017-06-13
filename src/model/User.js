@@ -14,16 +14,21 @@ class User {
    * profile
    * @memberof User
    * @returns {undefined} it returns no value
+   *
+   * @param {any} w3 represents the user details in object format
+   * @param {any} ig represents the full name of the user from their google account
+   * @param {any} U3 represents the user's email address
+   * @param {any} Paa represents the image url of the user
    */
   login(response) {
-    const user = response.profileObj;
+    const user = response.w3;
     Cookies.set('user_data', {
-      name: user.name,
-      email: user.email,
-      imageUrl: user.imageUrl,
+      name: user.ig,
+      email: user.U3,
+      imageUrl: user.Paa,
     });
     this.isLogin = true;
-    // this.userDetails();
+    this.userDetails();
   }
   /**
    * @description logs the user out.
@@ -50,7 +55,5 @@ class User {
     }
     return false;
   }
-  
 }
 export default new User();
-

@@ -45,7 +45,9 @@ class Login extends Component {
               onSuccess={responseGoogle}
               onfailure={responseGoogle}
             >
-              <span className="login-img"><img src="../img/google.png" alt="google login" /></span>
+              <a className="btn btn-danger">
+                Sign in with Google
+                </a>
             </GoogleLogin>
           </div>
         </div>

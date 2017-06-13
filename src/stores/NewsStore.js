@@ -57,7 +57,7 @@ class NewsStore extends EventEmitter {
   /**
    *
    * @desc removes the listener added by addChangeListener,
-   * terminates commincation with the articles component.
+   * terminates communication with the articles component.
    * @param  callback
    * @memberof NewsStore
    */

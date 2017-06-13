@@ -5,4 +5,5 @@ bundle.js
 .env
 .DS_Store
 Thumbs.db
+.jsbeautifyrc
 

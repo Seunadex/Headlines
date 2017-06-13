@@ -8,7 +8,7 @@ const APP_DIR = path.resolve(__dirname, 'src');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 try {
-  envFile(path.join(__dirname, `config/${process.env.NODE_ENV}.env`));
+  envFile(path.join(__dirname, `.env`));
 } catch (e) {
 
 }
@@ -45,7 +45,7 @@ module.exports = {
       {
         test: /\.jpeg$/,
         loaders: ['file-loader', 'url-loader'],
-      }
+      },
     ],
   },
   plugins: [
@@ -55,7 +55,8 @@ module.exports = {
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         CLIENT_ID: JSON.stringify(process.env.CLIENT_ID),
-      }
-    })
+        API_KEY: JSON.stringify(process.env.API_KEY),
+      },
+    }),
   ],
 };

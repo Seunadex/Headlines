@@ -4,16 +4,17 @@
   "description": "News Feed Application",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run build && node server.js",
     "test": "jest --coverage",
     "build": "webpack",
-    "watch": "webpack -d --watch"
+    "watch": "webpack -d -w"
   },
   "author": "Seun Adekunle",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.1",
     "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
     "dotenv": "^4.0.0",
     "dotenv-webpack": "^1.4.5",
     "expect": "^1.20.2",

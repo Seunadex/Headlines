@@ -5,9 +5,7 @@ import User from '../../model/User';
  *@returns {*} element to be rendered
  */
 const Header = () => {
-  const fullName = User.name.split(' ');
   const image = User.imageUrl;
-  const firstName = fullName[0];
   return (
     <div className="navtop">
       <nav className="navbar-inverse">
@@ -31,19 +29,20 @@ const Header = () => {
             <ul className="nav navbar-nav">
               <li><a href="/">Home</a></li>
             </ul>
-            <ul className="nav navbar-nav navbar-right">              <li>
-                <p>Logged in as: <i className="fa fa-user" aria-hidden="true" /> <strong>{firstName}</strong></p>
+            <ul className="nav navbar-nav navbar-right">
+              <li>
+                <p>Welcome</p>
               </li>
               <li className="dropdown">
                 <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img src={image} alt="img" className="img-circle" />
-                <span className="caret"></span></a>
+                  <span className="caret" /></a>
                 <ul className="dropdown-menu">
-                   <li>
-                <a href="/#/logout">
-                  <span className="glyphicon glyphicon-log-out" />
+                  <li>
+                    <a href="/#/logout">
+                      <i className="fa fa-sign-out" aria-hidden="true" />
                   Sign Out
                 </a>
-              </li>
+                  </li>
                 </ul>
               </li>
             </ul>

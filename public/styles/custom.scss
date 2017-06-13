@@ -24,6 +24,15 @@ $lobster: 'Lobster', cursive;
 
 /*Styling for the login page*/
 
+.btn {
+	border-radius: 5px;
+}
+a.btn {
+	padding: 7px 15px;
+	font-size: 20px;
+
+}
+
 .loginbody {
 	padding-top: 100px;
 	width: 100%;
@@ -41,12 +50,6 @@ $lobster: 'Lobster', cursive;
 .login-para {
 	font-size: 35px;
 	color: $teal;
-}
-
-img {
-	height: 50px;
-	width: 200px;
-
 }
 /*end*/
 
@@ -110,7 +113,6 @@ div.navbar-header {
 		color: $sky_blue;
 		text-shadow: 0 0 4px $navy, 2px 2px 3px black;
 		margin-bottom: 30px;
-		opacity: 0.5;
 	}
 
 

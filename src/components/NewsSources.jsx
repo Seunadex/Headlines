@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { hashHistory } from 'react-router';
-import { Card, CardBlock, CardText, Container, Row, Col, Button, Jumbotron} from 'reactstrap';
+import { Card, CardBlock, CardText, Container, Row, Col, Button, Jumbotron } from 'reactstrap';
 import newsSourcesStore from '../stores/NewsSourcesStore';
 import NewsActions from '../actions/NewsActions';
 import Header from './layout/Header';
@@ -27,7 +27,6 @@ class NewsSources extends Component {
     this.state = {
       sources: [],
       search: '',
-      loading: false,
     };
 
     this.getNewsSources = this.getNewsSources.bind(this);
@@ -134,7 +133,7 @@ class NewsSources extends Component {
                 <Card className="card-row">
                   <div className="text-center title"><h2>{source.title}</h2></div>
                   <CardBlock>
-                    <CardText className="description">{source.description}</CardText>
+                    <CardText className="description">{source.description.substr(0, 330)}...</CardText>
                     <div className="float-left">
                       <CardText className="category">
                         <span><strong>Category</strong>
