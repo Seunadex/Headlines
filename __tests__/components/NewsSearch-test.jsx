@@ -1,3 +1,4 @@
+/* global describe it */
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import React from 'react';
@@ -8,7 +9,7 @@ chai.use(chaiEnzyme());
 const wrapper = shallow(<Search />);
 
 describe('NewsSearch', () => {
-	describe('Search components', () => {
+  describe('Search components', () => {
 		it('should exist', () => {
 			expect(wrapper).to.be.present();
 		});
