@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": "airbnb",
     "parserOptions": {
@@ -23,6 +24,9 @@
         "semi": [
             "error",
             "always"
+        ],
+        "arrow-body-style": [
+            "error", "always"
         ]
     }
 }

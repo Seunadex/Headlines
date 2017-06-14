@@ -8,12 +8,12 @@ chai.use(chaiEnzyme());
 const wrapper = shallow(<SocialShare />);
 
 describe('Social media share', () => {
-	describe('share component', () => {
-		it('should exist', () => {
-			expect(wrapper).to.be.present();
-		});
-		it('should have a four social-share className', () => {
-			expect((wrapper).find('.social-share')).to.have.length(4);
-		});
-	});
+  describe('share component', () => {
+    it('should exist', () => {
+      expect(wrapper).to.be.present();
+    });
+    it('should have a four social-share className', () => {
+      expect((wrapper).find('.social-share')).to.have.length(4);
+    });
+  });
 });

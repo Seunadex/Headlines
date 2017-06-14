@@ -26,6 +26,7 @@ class NewsArticles extends Component {
       articles: [],
     };
     this.onChange = this.onChange.bind(this);
+    this.handleSort = this.handleSort.bind(this);
   }
 
   /**
@@ -104,7 +105,7 @@ class NewsArticles extends Component {
             <Col xs="6" sm="6" md="4">
               <Form>
                 <FormGroup>
-                  <Input type="select" name="select" onChange={this.handleSort.bind(this)}>
+                  <Input type="select" name="select" onChange={this.handleSort}>
                     {option}
                   </Input>
                 </FormGroup>

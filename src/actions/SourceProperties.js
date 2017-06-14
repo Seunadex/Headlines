@@ -50,5 +50,4 @@ class SourceProperties {
   }
 
 }
-
 export default SourceProperties;

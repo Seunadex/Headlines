@@ -1,18 +1,10 @@
 import newsStore from '../../src/stores/NewsStore';
-import Constants from '../../src/constants/Constants';
 import Dispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
 jest.dontMock('../../src/stores/NewsStore');
 
 describe('NewsStore', () => {
-  const fetchNews = {
-    eventName: Constants.FETCH_NEWS,
-    news: [{
-      title: 'andela fellows',
-      description: 'Checkout what Andela fellows are up to' }],
-  };
-
   let callback;
   beforeEach(() => {
     callback = Dispatcher.register.mock.calls[0][0];
@@ -29,7 +21,7 @@ describe('NewsStore', () => {
   test('contain function addChangeListener', () => {
     callback = () => {
       return 'something';
-    }
+    };
     expect(newsStore.addChangeListener(callback)).toEqual(undefined);
   });
   test('contain function emitChange', () => {
@@ -37,8 +29,8 @@ describe('NewsStore', () => {
   });
   test('contain function removeChangeListener', () => {
     callback = () => {
-      return 'something';}
+      return 'something';
+    };
     expect(newsStore.removeChangeListener(callback)).toEqual(undefined);
   });
 });
-

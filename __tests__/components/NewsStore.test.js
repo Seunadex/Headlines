@@ -1,5 +1,4 @@
 import newsStore from '../../src/stores/NewsStore';
-import Constants from '../../src/constants/Constants';
 import Dispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
@@ -22,7 +21,7 @@ describe('NewsStore', () => {
   test('contain function addChangeListener', () => {
     callback = () => {
       return 'something';
-    }
+    };
     expect(newsStore.addChangeListener(callback)).toEqual(undefined);
   });
   test('contain function emitChange', () => {
@@ -30,7 +29,9 @@ describe('NewsStore', () => {
   });
   test('contain function removeChangeListener', () => {
     callback = () => {
-      return 'something';}
+      return 'something';
+    };
     expect(newsStore.removeChangeListener(callback)).toEqual(undefined);
   });
 });
+

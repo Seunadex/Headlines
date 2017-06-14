@@ -1,4 +1,3 @@
-/* global describe it */
 import { expect } from 'chai';
 import User from '../../src/model/User';
 
