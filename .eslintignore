@@ -1,0 +1,4 @@
+public/scripts/*.js
+coverage
+.vscode
+node_modules

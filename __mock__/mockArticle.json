@@ -1,0 +1,31 @@
+{
+    "status": "ok",
+    "source": "associated-press",
+    "sortBy": "top",
+    "articles": [
+        {
+            "author": "ERICA WERNER",
+            "title": "Top House GOP leader shot at congressional baseball practice",
+            "description": "WASHINGTON (AP) — A top House Republican, Steve Scalise of Louisiana, was shot by a rifle-wielding gunman Wednesday at a congressional baseball practice just outside of Washington. Several other people were also believed to have been hit, according to a lawmaker who witnessed the shooting. Capitol Police said officers who were part of Scalise's security detail returned fire and wounded the shooter, who was taken into custody. Scalise, the House majority whip, was in stable condition at George Washington University Hospital, according to one congressional aide. His injuries were not believed to be life-threatening. It was not known the condition of the others who were shot.",
+            "url": "https://apnews.com/3e84732a7d594eedba6fae5dd10808b7",
+            "urlToImage": "https://storage.googleapis.com/afs-prod/media/media:00f3e2c2868345b3a9a1afe1f503cf4f/3000.jpeg",
+            "publishedAt": "2017-06-14T13:10:00+00:00"
+        },
+        {
+            "author": "",
+            "title": "The Latest: Senator says gunman who shot Scalise had rifle",
+            "description": "WASHINGTON (AP) — The Latest on the shooting of House Majority Whip Steve Scalise (all times local): 9:20 a.m. Sen. Jeff Flake says the gunman in the shooting of Rep. Steve Scalise had \"a rifle of some sort\" and \"a lot of ammo.\" Flake says Scalise was playing second base at a congressional baseball practice when he was shot by a man standing off the third-base side of the field. He says Scalise dragged himself into the outfield to get farther away from the shooting. Several other people were wounded, including a congressional staff member and law enforcement personnel.",
+            "url": "https://apnews.com/8ea0fba74d2048aeb62aab6e810db4b1",
+            "urlToImage": "",
+            "publishedAt": "2017-06-14T13:19:35+00:00"
+        },
+        {
+            "author": "GREGORY KATZ and DANICA KIRKA",
+            "title": "Children tossed out of windows in London high-rise blaze",
+            "description": "LONDON (AP) — A deadly overnight fire raced through a 24-story apartment tower in London on Wednesday, killing at least six people and injuring 74 others, police said. Witnesses reported seeing residents throw babies and small children from high windows to people on the sidewalk in a desperate effort to save them from the flames. The inferno lit up the night sky and spewed black smoke from the windows of the Grenfell Tower in North Kensington, where more than 200 firefighters battled the blaze. A plume of smoke stretched for miles (kilometers) across the sky after dawn, revealing the blackened, flame-licked wreckage of the building, which was still burning over 12 hours later.",
+            "url": "https://apnews.com/8b0c27142c7c4bebaf781459a0fb4577",
+            "urlToImage": "https://storage.googleapis.com/afs-prod/media/media:876fd962a74d4d859a9bdb699220db1e/3000.jpeg",
+            "publishedAt": "2017-06-14T13:21:55+00:00"
+        }
+    ]
+}

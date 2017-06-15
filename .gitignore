@@ -2,4 +2,8 @@ node_modules/
 coverage/
 bundle.js
 .vscode
+.env
+.DS_Store
+Thumbs.db
+.jsbeautifyrc
 

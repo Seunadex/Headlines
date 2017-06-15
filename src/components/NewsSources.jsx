@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { hashHistory } from 'react-router';
-import { Card, CardBlock, CardText, Container, Row, Col, Button } from 'reactstrap';
+import { Card, CardBlock, CardText, Container, Row, Col, Button, Jumbotron } from 'reactstrap';
 import newsSourcesStore from '../stores/NewsSourcesStore';
 import NewsActions from '../actions/NewsActions';
 import Header from './layout/Header';
@@ -94,7 +94,7 @@ class NewsSources extends Component {
   /**
    *
    * @desc passes sort parameter via route
-   * @param {string} href news sources id and sorttype are passed as a string.
+   * @param {string} href news sources id and sort type are passed as a string.
    *
    * @memberof NewsSources
    */
@@ -104,11 +104,21 @@ class NewsSources extends Component {
 
 // render function
   render() {
+    /**
+     * filter this.state.sources content based on search criteria(this.state.search)
+     */
     const filteredSources = this.state.sources.filter(source => source.title.toLowerCase()
     .indexOf(this.state.search.toLowerCase()) !== -1);
     return (
       <div>
         <Header />
+        <div className="banner">
+          <Jumbotron fluid>
+            <Container fluid>
+              <h1 className="display-3">Select News from various sources</h1>
+            </Container>
+          </Jumbotron>
+        </div>
         <Container>
           <Search
             searchValue={this.state.search}
@@ -149,8 +159,8 @@ class NewsSources extends Component {
         <Footer />
       </div>
     );
+    }
   }
-}
 
 NewsSources.defaultProps = {
   sources: [],
@@ -158,7 +168,7 @@ NewsSources.defaultProps = {
 };
 
 NewsSources.propTypes = {
-  sources: PropTypes.array,
+  sources: PropTypes.Array,
   search: PropTypes.string,
 };
 

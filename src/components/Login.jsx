@@ -10,6 +10,8 @@ const history = createHistory({
   forceRefresh: true,
 });
 
+const client_id = process.env.CLIENT_ID;
+
 
 class Login extends Component {
   componentWillMount() {
@@ -17,7 +19,7 @@ class Login extends Component {
        * check if the user is logged in
        * push, replace, and go to navigate around
        */
-    if (User.isLogin) {
+    if (User.isLoggedIn) {
       history.push('/');
     }
   }
@@ -37,13 +39,15 @@ class Login extends Component {
 
             <GoogleLogin
               className="login"
-              clientId="869248524764-gq40n0trb23md1r6op4b2v23qgdb6bj6.apps.googleusercontent.com"
+              clientId={client_id}
               buttonText="Login"
               uxMode="popup"
               onSuccess={responseGoogle}
               onfailure={responseGoogle}
             >
-              <span className="login-img"><img src="../img/google.png" alt="google login" /></span>
+              <a className="btn btn-danger">
+                Sign in with Google
+                </a>
             </GoogleLogin>
           </div>
         </div>
