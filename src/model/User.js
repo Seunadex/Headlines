@@ -6,7 +6,7 @@ class User {
    * @memberof User
    */
   constructor() {
-    this.isLogin = this.userDetails();
+    this.isLoggedIn = this.userDetails();
   }
   /**
    *@description  logs the user in.
@@ -27,7 +27,7 @@ class User {
       email: user.U3,
       imageUrl: user.Paa,
     });
-    this.isLogin = true;
+    this.isLoggedIn = true;
     this.userDetails();
   }
   /**
@@ -35,7 +35,7 @@ class User {
    * @returns{undefined} it has no return value
    */
   logOut() {
-    this.isLogin = false;
+    this.isLoggedIn = false;
     Cookies.remove('user_data');
   }
   /**

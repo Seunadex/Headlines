@@ -19,7 +19,7 @@ class Login extends Component {
        * check if the user is logged in
        * push, replace, and go to navigate around
        */
-    if (User.isLogin) {
+    if (User.isLoggedIn) {
       history.push('/');
     }
   }

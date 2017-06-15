@@ -7,7 +7,7 @@ import NewsArticles from './components/NewsArticles';
 import User from './model/User';
 
 const requireAuth = (nextState, replace) => {
-  if (!User.isLogin) {
+  if (!User.isLoggedIn) {
     replace({
       pathname: '/login',
       state: { nextPathname: nextState.location.pathname },
@@ -17,7 +17,7 @@ const requireAuth = (nextState, replace) => {
 };
 
 const checkAuth = (nextState, replace) => {
-  if (User.isLogin) {
+  if (User.isLoggedIn) {
     replace({
       pathname: '/',
       state: { nextPathname: nextState.location.pathname },
