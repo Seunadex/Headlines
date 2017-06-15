@@ -1,11 +1,11 @@
 import React from 'react';
-import NewsSources from '../../src/components/NewsSources';
+import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import { shallow } from 'enzyme';
-
+import NewsSources from '../../src/components/NewsSources';
 
 chai.use(chaiEnzyme());
+
 const wrapper = shallow(<NewsSources />);
 
 describe('Test for News Sources', () => {

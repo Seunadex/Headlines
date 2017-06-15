@@ -109,7 +109,7 @@ class NewsSources extends Component {
      */
     const filteredSources = this.state.sources.filter(source => source.title.toLowerCase()
     .indexOf(this.state.search.toLowerCase()) !== -1);
-      return (
+    return (
       <div>
         <Header />
         <div className="banner">
@@ -133,7 +133,7 @@ class NewsSources extends Component {
                 <Card className="card-row">
                   <div className="text-center title"><h2>{source.title}</h2></div>
                   <CardBlock>
-                    <CardText className="description">{source.description.substr(0, 330)}...</CardText>
+                    <CardText className="description">{source.description}</CardText>
                     <div className="float-left">
                       <CardText className="category">
                         <span><strong>Category</strong>
@@ -168,7 +168,7 @@ NewsSources.defaultProps = {
 };
 
 NewsSources.propTypes = {
-  sources: PropTypes.array,
+  sources: PropTypes.Array,
   search: PropTypes.string,
 };
 

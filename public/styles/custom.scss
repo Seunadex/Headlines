@@ -127,6 +127,7 @@ $width: 30%;
 	height: 450px;
 	@include shadow;
 	border-radius: 5px;
+	font-size: 17px;
 	overflow: auto;
 	&:hover {
 		box-shadow: 5px 5px 10px $sky_blue;
@@ -148,6 +149,9 @@ $width: 30%;
 	.title {
 		@include font;
 	}
+	.subtitle {
+		font-size: 17px;
+	}
 
 	.card-row {
 		height: 270px;
@@ -167,6 +171,7 @@ $width: 30%;
 	}
 
 	div.share-container {
+		margin-top: 50px;
 		margin-left: 20px;
 		text-align: center;
 	}

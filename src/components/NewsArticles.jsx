@@ -127,9 +127,9 @@ class NewsArticles extends Component {
           <Row>
             {this.state.articles.map((news, index) => {
               const myStyle = {
-                height: '190px',
+                height: '130px',
                 background: `url(${news.image}) center center`,
-                width: '100%',
+                width: '80%',
                 backgroundSize: 'cover',
               };
 
@@ -139,7 +139,7 @@ class NewsArticles extends Component {
                     <Card>
                       <CardBlock>
                         <CardTitle className="title">{news.meta}</CardTitle>
-                        <CardSubtitle>{news.header}</CardSubtitle>
+                        <CardSubtitle className="subtitle">{news.header}</CardSubtitle>
                       </CardBlock>
                       <div style={myStyle} />
                       <CardBlock>

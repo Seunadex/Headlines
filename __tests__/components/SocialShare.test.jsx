@@ -1,8 +1,8 @@
 import React from 'react';
-import SocialShare from '../../src/components/SocialShare';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import { shallow } from 'enzyme';
+import SocialShare from '../../src/components/SocialShare';
 
 chai.use(chaiEnzyme());
 const wrapper = shallow(<SocialShare />);
@@ -14,6 +14,7 @@ describe('Social media share', () => {
     });
     it('should have a four social-share className', () => {
       expect((wrapper).find('.social-share')).to.have.length(4);
+      expect((wrapper).find('.Demo__some-network__share-count')).to.have.length(4);
     });
   });
 });

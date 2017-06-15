@@ -57,11 +57,12 @@ const Share = (props) => {
             round
           />
         </FacebookShareButton>
-         <FacebookShareCount
-            url={shareUrl}
-            className="Demo__some-network__share-count">
-            {count => count}
-          </FacebookShareCount>
+        <FacebookShareCount
+          url={shareUrl}
+          className="Demo__some-network__share-count"
+        >
+          {count => count}
+        </FacebookShareCount>
       </div>
 
 
@@ -77,10 +78,11 @@ const Share = (props) => {
           />
         </GooglePlusShareButton>
         <GooglePlusShareCount
-            url={shareUrl}
-            className="Demo__some-network__share-count">
-            {count => count}
-          </GooglePlusShareCount>
+          url={shareUrl}
+          className="Demo__some-network__share-count"
+        >
+          {count => count}
+        </GooglePlusShareCount>
       </div>
 
 
@@ -95,11 +97,12 @@ const Share = (props) => {
             round
           />
         </LinkedinShareButton>
-         <LinkedinShareCount
-            url={shareUrl}
-            className="Demo__some-network__share-count">
-            {count => count}
-          </LinkedinShareCount>
+        <LinkedinShareCount
+          url={shareUrl}
+          className="Demo__some-network__share-count"
+        >
+          {count => count}
+        </LinkedinShareCount>
       </div>
     </div>
 
