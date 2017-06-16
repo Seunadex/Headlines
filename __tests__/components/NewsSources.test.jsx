@@ -1,12 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import NewsSources from '../../src/components/NewsSources';
 
+const wrapper = mount(<NewsSources />);
 chai.use(chaiEnzyme());
-
-const wrapper = shallow(<NewsSources />);
 
 describe('Test for News Sources', () => {
   describe('#NewsSources', () => {

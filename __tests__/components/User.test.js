@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import User from '../../src/model/User';
 
-const response = { w3:
-  { ig: 'seun', U3: 'spydee4real@gmail.com', Paa: 'www.imgurl.com' },
+const response = { profileObj:
+  { givenName: 'seun', email: 'spydee4real@gmail.com', imageUrl: 'www.imgurl.com' },
 };
 User.login(response);
 
@@ -12,20 +12,20 @@ describe('User', () => {
   });
 
   it('should log in correctly', () => {
-    expect(User.isLogin).to.not.equal(false);
-    expect(User.isLogin).to.equal(true);
+    expect(User.isLogggedIn).to.not.equal(false);
+    expect(User.isLoggedIn).to.equal(true);
   });
 
   it('should log the user out correctly', () => {
     User.logOut();
-    expect(User.isLogin).to.equal(false);
-    expect(User.isLogin).to.not.equal(true);
+    expect(User.isLoggedIn).to.equal(false);
+    expect(User.isLoggedIn).to.not.equal(true);
   });
 
   it('should contain correct user details', () => {
-    expect(response.w3.ig).to.equal('seun');
-    expect(response.w3.U3).to.equal('spydee4real@gmail.com');
-    expect(response.w3.Paa).to.equal('www.imgurl.com');
+    expect(response.profileObj.givenName).to.equal('seun');
+    expect(response.profileObj.email).to.equal('spydee4real@gmail.com');
+    expect(response.profileObj.imageUrl).to.equal('www.imgurl.com');
   });
 });
 

@@ -24,13 +24,16 @@ $lobster: 'Lobster', cursive;
 
 /*Styling for the login page*/
 
-.btn {
-	border-radius: 5px;
-}
-a.btn {
+.login {
 	padding: 7px 15px;
 	font-size: 20px;
-
+	border: none;
+	background-color: #ff3333;
+	color: $white !important;
+	box-shadow: 0px 0px 3px black;
+	&:hover {
+		opacity: 0.75;
+	}
 }
 
 .loginbody {
@@ -45,7 +48,6 @@ a.btn {
 	}
 
 }
-
 
 .login-para {
 	font-size: 35px;
@@ -122,6 +124,7 @@ div.navbar-header {
 	/*Styling for the article page*/
 $width: 30%;
 .article-frame {
+	text-align: center;
 	margin: 16px;
 	width: $width;
 	height: 450px;
@@ -140,6 +143,7 @@ $width: 30%;
 	text-transform: capitalize;
 	text-shadow: 1px 2px 2px black;
 	@include font;
+	margin-top: 20px;
 }
 
 	a {
@@ -151,6 +155,10 @@ $width: 30%;
 	}
 	.subtitle {
 		font-size: 17px;
+	}
+
+	.justify-content-center {
+		margin-top: 30px;
 	}
 
 	.card-row {
@@ -200,6 +208,31 @@ $width: 30%;
 /**
 *end
 **/
+
+.loader {
+  border: 36px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 36px solid blue;
+  border-right: 36px solid green;
+  border-bottom: 36px solid red;
+  width:200px;
+  height: 200px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 70px;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 /*Styling for the footer*/
 

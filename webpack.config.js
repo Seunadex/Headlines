@@ -3,15 +3,10 @@ const path = require('path');
 const envFile = require('node-env-file');
 require('dotenv').config();
 
-const BUILD_DIR = path.resolve(__dirname, 'public/scripts');
+const BUILD_DIR = path.resolve(__dirname, 'public');
 const APP_DIR = path.resolve(__dirname, 'src');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-try {
-  envFile(path.join(__dirname, `.env`));
-} catch (e) {
-
-}
 
 module.exports = {
   devtool: process.env.NODE_ENV === 'production' ? undefined : 'inline-source-map',

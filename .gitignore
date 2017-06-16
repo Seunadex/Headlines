@@ -1,6 +1,6 @@
 node_modules/
 coverage/
-bundle.js
+public/bundle.js
 .vscode
 .env
 .DS_Store

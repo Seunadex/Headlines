@@ -15,17 +15,13 @@ class User {
    * @memberof User
    * @returns {undefined} it returns no value
    *
-   * @param {any} w3 represents the user details in object format
-   * @param {any} ig represents the full name of the user from their google account
-   * @param {any} U3 represents the user's email address
-   * @param {any} Paa represents the image url of the user
    */
   login(response) {
-    const user = response.w3;
+    const user = response.profileObj;
     Cookies.set('user_data', {
-      name: user.ig,
-      email: user.U3,
-      imageUrl: user.Paa,
+      name: user.givenName,
+      email: user.email,
+      imageUrl: user.imageUrl,
     });
     this.isLoggedIn = true;
     this.userDetails();

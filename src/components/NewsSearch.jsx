@@ -12,7 +12,7 @@ class Search extends React.Component {
   render() {
     return (
       <Row className="search-feed">
-        <InputGroup className="searchBar">
+        <InputGroup>
           <InputGroupAddon>
             <i
               className="fa fa-search search-icon"

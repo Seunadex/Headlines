@@ -15,7 +15,7 @@ const Header = () => {
               type="button"
               className="navbar-toggle collapsed"
               data-toggle="collapse"
-              data-target="#bs"
+              data-target="#bs-example-navbar-collapse-1"
               aria-expanded="false"
             >
               <span className="sr-only">Toggle navigation</span>
@@ -25,7 +25,7 @@ const Header = () => {
             </button>
             <a className="navbar-brand">News Feed</a>
           </div>
-          <div className="collapse navbar-collapse" id="bs">
+          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
               <li><a href="/">Home</a></li>
             </ul>
@@ -34,7 +34,14 @@ const Header = () => {
                 <p>Welcome</p>
               </li>
               <li className="dropdown">
-                <a className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <img src={image} alt="img" className="img-circle" />
+                <a
+                  className="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img src={image} alt="img" className="img-circle" />
                   <span className="caret" /></a>
                 <ul className="dropdown-menu">
                   <li>

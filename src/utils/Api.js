@@ -11,13 +11,12 @@ class Api {
    */
   constructor() {
     this.apiKey = process.env.API_KEY;
-    this.articleLink = 'https://newsapi.org/v1/articles?';
     this.sourceLink = 'https://newsapi.org/v1/sources?language=en';
+    this.articleLink = 'https://newsapi.org/v1/articles?';
     this.link = this.articleLink;
   }
 
   /**
-   * @return {void}
    * @param {string} type describes the source of the news
    * @param {string} value decribes the actual value of the source
    *

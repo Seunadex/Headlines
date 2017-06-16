@@ -1,16 +1,15 @@
-import React from 'react';
-import Header from '../../src/components/layout/Header';
-import User from '../../src/model/User';
 import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-
+import React from 'react';
+import Header from '../../src/components/layout/Header';
+import User from '../../src/model/User';
 
 chai.use(chaiEnzyme());
-const response = { w3: {
-  ig: 'seun',
-  U3: 'spydee4real@gmail.com',
-  Paa: 'www.imgurl.com' },
+const response = { profileObj: {
+  givenName: 'seun',
+  email: 'spydee4real@gmail.com',
+  imageUrl: 'www.imgurl.com' },
 };
 const wrapper = shallow(<Header />);
 

@@ -16,7 +16,7 @@ const requireAuth = (nextState, replace) => {
   }
 };
 
-const checkAuth = (nextState, replace) => {
+const verifyAuth = (nextState, replace) => {
   if (User.isLoggedIn) {
     replace({
       pathname: '/',
@@ -32,7 +32,7 @@ const App = () =>
        <Router history={hashHistory}>
          <Route path="/" component={NewsSources} onEnter={requireAuth} />
          <Route path="/articles/:id/:sort" component={NewsArticles} onEnter={requireAuth} />
-         <Route path="/login" component={Login} onEnter={checkAuth} />
+         <Route path="/login" component={Login} onEnter={verifyAuth} />
          <Route path="/logout" component={Logout} />
        </Router>
      </div>
