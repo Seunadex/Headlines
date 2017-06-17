@@ -4,9 +4,9 @@
   "description": "News Feed Application",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run build && node server.js",
     "test": "jest --coverage",
-    "postinstall": "NODE_ENV=production webpack -p --config webpack.config.js --progress",
+    "build": "webpack",
     "watch": "webpack -d -w"
   },
   "author": "Seun Adekunle",

@@ -117,14 +117,11 @@ class NewsArticles extends Component {
                 </FormGroup>
               </Form>
             </Col>
-            <div className="btn-group navbar-fixed-bottom navbar-right" role="group" aria-label="...">
-              <button type="button" href="/" className="btn btn-default">
-            Home
+            <button type="button" className="btn btn-default back">
+              <a href="/" >
+                Back to Home
+              </a>
             </button>
-              <button type="button" className="btn btn-default bg-fade">
-            Top
-            </button>
-            </div>
           </Row>
         </Container>
 
