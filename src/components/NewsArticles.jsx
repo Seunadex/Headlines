@@ -117,7 +117,7 @@ class NewsArticles extends Component {
                 </FormGroup>
               </Form>
             </Col>
-            <button type="button" className="btn btn-default back">
+            <button type="button" className="btn btn-info back">
               <a href="/" >
                 Back to Home
               </a>
