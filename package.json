@@ -4,7 +4,7 @@
   "description": "News Feed Application",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node server.js",
+    "start": "node server.js",
     "test": "jest --coverage",
     "build": "webpack",
     "watch": "webpack -d -w"
@@ -67,6 +67,7 @@
     "sass-loader": "^6.0.5",
     "sinon": "^2.3.4",
     "style-loader": "^0.18.1",
+    "uglifyjs-webpack-plugin": "^0.4.3",
     "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
