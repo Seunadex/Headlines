@@ -11,7 +11,7 @@ const history = createHistory({
 
 class Logout extends Component {
   componentWillMount() {
-    if (User.isLogin) {
+    if (User.isLoggedIn) {
       User.logOut();
       history.push('/#/login');
       window.location.reload();

@@ -10,17 +10,15 @@ class Api {
    * @memberof Api
    */
   constructor() {
-    this.apiKey = '213327409d384371851777e7c7f78dfe';
-    this.linkString = 'https://newsapi.org/v1/articles?';
-    this.apilink = 'https://newsapi.org/v1/sources?language=en';
-    this.link = this.linkString;
+    this.apiKey = process.env.API_KEY;
+    this.sourceLink = 'https://newsapi.org/v1/sources?language=en';
+    this.articleLink = 'https://newsapi.org/v1/articles?';
+    this.link = this.articleLink;
   }
 
   /**
-   *
-   * @return {void}
-   * @param {string} type
-   * @param {string} value
+   * @param {string} type describes the source of the news
+   * @param {string} value decribes the actual value of the source
    *
    * @memberof Api
    */
@@ -35,7 +33,7 @@ class Api {
    * @memberof Api
    */
   resetQuery() {
-    this.link = this.linkString;
+    this.link = this.articleLink;
   }
 
   /**

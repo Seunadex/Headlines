@@ -26,10 +26,11 @@ class NewsArticles extends Component {
       articles: [],
     };
     this.onChange = this.onChange.bind(this);
+    this.handleSort = this.handleSort.bind(this);
   }
 
   /**
-   * @desc represents a life cycle state of this component. 
+   * @desc represents a life cycle state of this component.
    * It updates the state of this component when it is rendered.
    *
    */
@@ -59,7 +60,7 @@ class NewsArticles extends Component {
    */
   getArticles() {
     return {
-      articles: newsStore.getAll(),
+      articles: this.newsStore.getAll(),
     };
   }
 
@@ -71,7 +72,7 @@ class NewsArticles extends Component {
    * @memberof NewsArticles
    */
   getInitialArticlesState() {
-    return getArticles();
+    return this.getArticles();
   }
 
   /**
@@ -92,6 +93,12 @@ class NewsArticles extends Component {
     const sortOrder = params.sort.split(',');
     const option = sortOrder.map((type, index) =>
       <option value={type} key={index}> {type} </option>);
+    if (!this.state.articles.length) {
+      return (<div>
+        <Header />
+        <div className="loader" />
+      </div>);
+    }
     return (
       <div>
         <Header />
@@ -104,21 +111,20 @@ class NewsArticles extends Component {
             <Col xs="6" sm="6" md="4">
               <Form>
                 <FormGroup>
-                  <Input type="select" name="select" onChange={this.handleSort.bind(this)}>
+                  <Input type="select" name="select" onChange={this.handleSort}>
                     {option}
                   </Input>
                 </FormGroup>
               </Form>
             </Col>
-
-            <Col xs="6" md="4" className="back">
-              <a href="/"><i
-                className="fa fa-angle-double-left icon-back"
-                aria-hidden="true"
-              />
-             Back</a>
-            </Col>
-
+            <div className="btn-group navbar-fixed-bottom navbar-right" role="group" aria-label="...">
+              <button type="button" href="/" className="btn btn-default">
+            Home
+            </button>
+              <button type="button" className="btn btn-default bg-fade">
+            Top
+            </button>
+            </div>
           </Row>
         </Container>
 
@@ -126,19 +132,18 @@ class NewsArticles extends Component {
           <Row>
             {this.state.articles.map((news, index) => {
               const myStyle = {
-                height: '190px',
+                height: '130px',
                 background: `url(${news.image}) center center`,
-                width: '100%',
+                width: '80%',
                 backgroundSize: 'cover',
               };
-
               return (
                 <a href={news.href} key={index} rel="noopener noreferrer" target="_blank" >
                   <Col xs="12" sm="6" md="4" className="article-frame">
                     <Card>
                       <CardBlock>
                         <CardTitle className="title">{news.meta}</CardTitle>
-                        <CardSubtitle>{news.header}</CardSubtitle>
+                        <CardSubtitle className="subtitle">{news.header}</CardSubtitle>
                       </CardBlock>
                       <div style={myStyle} />
                       <CardBlock>

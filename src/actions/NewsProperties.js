@@ -37,7 +37,6 @@ class NewsProperties {
    *
    * @desc returns the value of news property
    *
-   * @memberof NewsProperties
    */
   get() {
     return this.news;

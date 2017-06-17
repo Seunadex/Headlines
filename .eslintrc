@@ -1,8 +1,8 @@
-module.exports = {
+{
     "env": {
         "browser": true,
-        "commonjs": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
     "extends": "airbnb",
     "parserOptions": {
@@ -17,17 +17,6 @@ module.exports = {
     ],
     
     "rules": {
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "react/jsx-no-bind": [
-        "enabled", {
-        "ignoreRefs": boolean || false,
-        "allowArrowFunctions": boolean || false,
-        "allowBind": boolean || false
-}],
-
         "quotes": [
             "error",
             "single"
@@ -35,6 +24,9 @@ module.exports = {
         "semi": [
             "error",
             "always"
+        ],
+        "arrow-body-style": [
+            "error", "always"
         ]
     }
-};
+}

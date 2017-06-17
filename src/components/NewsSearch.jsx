@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, InputGroup, Row, InputGroupAddon } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 
 /**
@@ -11,7 +12,7 @@ class Search extends React.Component {
   render() {
     return (
       <Row className="search-feed">
-        <InputGroup className="searchBar">
+        <InputGroup>
           <InputGroupAddon>
             <i
               className="fa fa-search search-icon"
@@ -21,8 +22,8 @@ class Search extends React.Component {
           <Input
             className="app-input"
             placeholder="Quick Search"
-            value={this.props.searchValue} 
-            onChange={this.props.handleSearch} 
+            value={this.props.searchValue}
+            onChange={this.props.handleSearch}
           />
         </InputGroup>
       </Row>

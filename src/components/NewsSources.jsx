@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { hashHistory } from 'react-router';
-import { Card, CardBlock, CardText, Container, Row, Col, Button } from 'reactstrap';
+import { Card, CardBlock, CardText, Container, Row, Col, Button, Jumbotron } from 'reactstrap';
 import newsSourcesStore from '../stores/NewsSourcesStore';
 import NewsActions from '../actions/NewsActions';
 import Header from './layout/Header';
@@ -34,15 +34,6 @@ class NewsSources extends Component {
     this.updateSearch = this.updateSearch.bind(this);
   }
 
-/**
- * @function
- * @returns {object} array
- * @description calls getNewsSources
- **/
-  getInitialSourcesState() {
-    return getNewsSources();
-  }
-
   /**
    *  @desc represents a life cycle state of this component.
    * It updates the state of this component when it is rendered.
@@ -68,7 +59,14 @@ class NewsSources extends Component {
       sources: SourcesState.sources || [],
     });
   }
-
+/**
+ * @function
+ * @returns {object} array
+ * @description calls getNewsSources
+ **/
+  getInitialSourcesState() {
+    return getNewsSources();
+  }
   /**
    * @desc links the state of the sources property of
    *  this component to the state of the news sources store.
@@ -82,6 +80,16 @@ class NewsSources extends Component {
   }
 
   /**
+   *
+   * @desc passes sort parameter via route
+   * @param {string} href news sources id and sort type are passed as a string.
+   *
+   * @memberof NewsSources
+   */
+  getSortValue(href) {
+    hashHistory.push(href);
+  }
+  /**
    * @desc update the state of search property
    * @param {function} event represents the onchange event
    *  that triggers change in user input on the search bar.
@@ -91,24 +99,55 @@ class NewsSources extends Component {
     this.setState({ search: event.target.value });
   }
 
-  /**
-   *
-   * @desc passes sort parameter via route
-   * @param {string} href news sources id and sorttype are passed as a string.
-   *
-   * @memberof NewsSources
-   */
-  getSortValue(href) {
-    hashHistory.push(href);
-  }
-
 // render function
   render() {
+    /**
+     * filter this.state.sources content based on search criteria(this.state.search)
+     */
     const filteredSources = this.state.sources.filter(source => source.title.toLowerCase()
     .indexOf(this.state.search.toLowerCase()) !== -1);
+    const newsNode = filteredSources.map(source => (
+      <Col xs="12" sm="6" md="4" key={source.id}>
+        <Card className="card-row">
+          <div className="text-center title"><h2>{source.title}</h2></div>
+          <CardBlock>
+            <CardText className="description">{source.description}</CardText>
+            <div className="float-left">
+              <CardText className="category">
+                <span><strong>Category</strong>
+                  <i
+                    className="fa fa-angle-double-right"
+                    aria-hidden="true"
+                  /> {source.category}</span>
+              </CardText>
+            </div>
+            <div className="float-right">
+              <Button
+                color="info"
+                className="view"
+                onClick={this.getSortValue.bind(this, `${source.href}/${source.sortBysAvailable}`)}
+              >View Headlines</Button>
+            </div>
+          </CardBlock>
+        </Card>
+      </Col>
+          ));
+    let output = {};
+    if (!this.state.sources.length) {
+      output = <div className="loader" />;
+    } else {
+      output = newsNode;
+    }
     return (
       <div>
         <Header />
+        <div className="banner">
+          <Jumbotron fluid>
+            <Container fluid>
+              <h1 className="display-3">Select News from various sources</h1>
+            </Container>
+          </Jumbotron>
+        </div>
         <Container>
           <Search
             searchValue={this.state.search}
@@ -117,40 +156,14 @@ class NewsSources extends Component {
         </Container>
         <Container>
           <Row className="justify-content-center">
-            {filteredSources.map(source => (
-
-              <Col xs="12" sm="6" md="4" key={source.id}>
-                <Card className="card-row">
-                  <div className="text-center title"><h2>{source.title}</h2></div>
-                  <CardBlock>
-                    <CardText className="description">{source.description}</CardText>
-                    <div className="float-left">
-                      <CardText className="category">
-                        <span><strong>Category</strong>
-                          <i
-                            className="fa fa-angle-double-right"
-                            aria-hidden="true"
-                          /> {source.category}</span>
-                      </CardText>
-                    </div>
-                    <div className="float-right">
-                      <Button
-                        color="info"
-                        className="view"
-                        onClick={this.getSortValue.bind(this, `${source.href}/${source.sortBysAvailable}`)}
-                      >View Headlines</Button>
-                    </div>
-                  </CardBlock>
-                </Card>
-              </Col>
-          ))}
+            {output}
           </Row>
         </Container>
         <Footer />
       </div>
     );
   }
-}
+  }
 
 NewsSources.defaultProps = {
   sources: [],
