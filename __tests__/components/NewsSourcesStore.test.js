@@ -1,8 +1,8 @@
-import newsStore from '../../src/stores/NewsStore';
+import NewsSourcesStore from '../../src/stores/NewsSourcesStore';
 import Dispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
-jest.dontMock('../../src/stores/NewsStore');
+jest.dontMock('../../src/stores/NewsSourcesStore');
 
 describe('NewsStore', () => {
   let callback;
@@ -15,22 +15,22 @@ describe('NewsStore', () => {
   });
 
   test('store initializes with no data', () => {
-    const allNews = newsStore.getAll().length;
+    const allNews = NewsSourcesStore.getAll().length;
     expect(allNews).toBe(0);
   });
   test('contain function addChangeListener', () => {
     callback = () => {
       return 'something';
     };
-    expect(newsStore.addChangeListener(callback)).toEqual(undefined);
+    expect(NewsSourcesStore.addChangeListener(callback)).toEqual(undefined);
   });
   test('contain function emitChange', () => {
-    expect(newsStore.emitChange()).toEqual(undefined);
+    expect(NewsSourcesStore.emitChange()).toEqual(undefined);
   });
   test('contain function removeChangeListener', () => {
     callback = () => {
       return 'something';
     };
-    expect(newsStore.removeChangeListener(callback)).toEqual(undefined);
+    expect(NewsSourcesStore.removeChangeListener(callback)).toEqual(undefined);
   });
 });
