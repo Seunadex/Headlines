@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "jest --coverage",
-    "build": "webpack",
+    "postinstall": "NODE_ENV=production webpack -p --config webpack.config.js --progress",
     "watch": "webpack -d -w"
   },
   "author": "Seun Adekunle",
