@@ -85,6 +85,16 @@ div.navbar-header {
 	padding: 10px 0px;
 }
 
+.btn>a {
+	color: $white;
+	
+}
+.back {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+}
+
 /*styling for the news source*/
 .search-feed {
 	margin-top: 20px auto 20px auto;
@@ -210,13 +220,12 @@ $width: 30%;
 **/
 
 .loader {
-  border: 36px solid #f3f3f3;
+  border: 16px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 36px solid blue;
-  border-right: 36px solid green;
-  border-bottom: 36px solid red;
-  width:200px;
-  height: 200px;
+  border-top: 16px solid #3498db;
+  margin-bottom: 50px; 
+  width: 130px;
+  height: 130px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
   margin-right: auto;
