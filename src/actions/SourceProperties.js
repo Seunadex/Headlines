@@ -1,14 +1,11 @@
 /**
  * @desc contains methods that extract relevant fields
  * from the data received the news API.
- *
- * @class SourceProperties
  */
 class SourceProperties {
   /**
    * Creates an instance of SourceProperties with a sources property.
    *
-   * @memberof SourceProperties
    */
   constructor() {
     this.sources = [];
@@ -40,10 +37,7 @@ class SourceProperties {
 
   /**
    * @desc returns the value of the sources property everytime it is called.
-   *
    * @returns {object} array containing all news sources
-   *
-   * @memberof SourceProperties
    */
   get() {
     return this.sources;

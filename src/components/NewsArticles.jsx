@@ -4,8 +4,8 @@ import { Form, FormGroup, Input, Card, CardText, CardBlock,
 import PropTypes from 'prop-types';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
-import newsStore from '../stores/NewsStore';
-import NewsActions from '../actions/NewsActions';
+import articleStore from '../stores/ArticleStore';
+import ArticleAction from '../actions/ArticleAction';
 import Share from './SocialShare';
 
 
@@ -36,12 +36,12 @@ class NewsArticles extends Component {
    */
   componentDidMount() {
     const { params } = this.props;
-    newsStore.addChangeListener(this.onChange);
-    NewsActions.fetchNews(params.id);
+    articleStore.addChangeListener(this.onChange);
+    ArticleAction.fetchNews(params.id);
   }
 
   componentWillUnmount() {
-    newsStore.removeChangeListener(this.onChange);
+    articleStore.removeChangeListener(this.onChange);
   }
 
   /**
@@ -50,7 +50,7 @@ class NewsArticles extends Component {
    *
    */
   onChange() {
-    this.setState({ articles: newsStore.getAll() });
+    this.setState({ articles: articleStore.getAll() });
   }
   /**
    *
@@ -60,7 +60,7 @@ class NewsArticles extends Component {
    */
   getArticles() {
     return {
-      articles: this.newsStore.getAll(),
+      articles: this.articleStore.getAll(),
     };
   }
 
@@ -85,7 +85,7 @@ class NewsArticles extends Component {
     const { params } = this.props;
     event.preventDefault();
     const targetVal = event.target.value;
-    NewsActions.fetchNews(params.id, targetVal);
+    ArticleAction.fetchNews(params.id, targetVal);
   }
 
   render() {
@@ -117,11 +117,9 @@ class NewsArticles extends Component {
                 </FormGroup>
               </Form>
             </Col>
-            <button type="button" className="btn btn-info back">
-              <a href="/" >
+            <a type="button" href="/" className="btn btn-info back">
                 Back to Home
-              </a>
-            </button>
+            </a>
           </Row>
         </Container>
 

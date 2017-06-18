@@ -43,7 +43,7 @@ const Share = (props) => {
         </TwitterShareButton>
         <div className="Demo__some-network__share-count">
             &nbsp;
-          </div>
+        </div>
       </div>
 
       <div className="social-share face">

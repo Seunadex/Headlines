@@ -1,13 +1,13 @@
 /**
  *
  * @desc Contains parameters to extract from API data.
- * @class NewsProperties
+ * @class ArticleProperties
  */
-class NewsProperties {
+class ArticleProperties {
   /**
-   * Creates an instance of NewsProperties with a news property.
+   * Creates an instance of ArticleProperties with a news property.
    *
-   * @memberof NewsProperties
+   * @memberof ArticleProperties
    */
   constructor() {
     this.news = [];
@@ -21,11 +21,10 @@ class NewsProperties {
    * @param link   represents the url to the original article or news.
    * @param image  represents the url for the cover image of the headline.
    *
-   * @memberof NewsProperties
+   * @memberof ArticleProperties
    */
   add(title, description, meta, link, image) {
-    this.news.push({
-      href: link,
+    this.news.push({ href: link,
       header: title,
       description,
       meta,
@@ -44,4 +43,4 @@ class NewsProperties {
 
 
 }
-export default NewsProperties;
+export default ArticleProperties;

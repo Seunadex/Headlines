@@ -8,14 +8,14 @@ const CHANGE_EVENT = 'change';
 /**
  * Represents Flux Store for sources component.
  *
- * @class NewsSourcesStore
+ * @class SourceStore
  * @extends {EventEmitter}
  */
-class NewsSourcesStore extends EventEmitter {
+class SourceStore extends EventEmitter {
   /**
-   * Creates an instance of NewsSourcesStore.
+   * Creates an instance of SourceStore.
    *
-   * @memberof NewsSourcesStore
+   * @memberof SourceStore
    */
   constructor() {
     super();
@@ -26,7 +26,7 @@ class NewsSourcesStore extends EventEmitter {
    *
    * @desc gets the value of the sources property
    * @returns {object}
-   * @memberof NewsSourcesStore
+   * @memberof SourceStore
    */
   getAll() {
     return this.sources;
@@ -36,7 +36,7 @@ class NewsSourcesStore extends EventEmitter {
    *
    * @description notify the sources component of changes in state.
    * @returns {void}
-   * @memberof NewsSourcesStore
+   * @memberof SourceStore
    */
   emitChange() {
     this.emit(CHANGE_EVENT);
@@ -47,7 +47,7 @@ class NewsSourcesStore extends EventEmitter {
    * @desc adds a listener that communicates state change to the sources component.
    * @param {function} callback listens for state update request from the sources component.
    * @returns {void}
-   * @memberof NewsSourcesStore
+   * @memberof SourceStore
    */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
@@ -59,19 +59,19 @@ class NewsSourcesStore extends EventEmitter {
    * terminates communication with the sources componennt.
    * @param callback use to stop state update listens for request from the sources component.
    * @returns {void}
-   * @memberof NewsSourcesStore
+   * @memberof SourceStore
    */
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
 }
-const newsSourcesStore = new NewsSourcesStore();
+const sourceStore = new SourceStore();
 
 Dispatcher.register((payload) => {
-  switch (payload.eventName) {
+  switch (payload.actionName) {
     case Constants.FETCH_SOURCES:
-      newsSourcesStore.sources = payload.sources;
-      newsSourcesStore.emitChange();
+      sourceStore.sources = payload.sources;
+      sourceStore.emitChange();
       break;
 
     default:
@@ -79,4 +79,4 @@ Dispatcher.register((payload) => {
   }
 });
 
-export default newsSourcesStore;
+export default sourceStore;

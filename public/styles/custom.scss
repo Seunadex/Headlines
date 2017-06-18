@@ -6,6 +6,7 @@ $teal: #39cccc;
 $olive: #309970;
 $white: #fff;
 $sky_blue: #5bc0de;
+$red: #ff3333;
 $lobster: 'Lobster', cursive;
 
 @mixin move {
@@ -28,7 +29,7 @@ $lobster: 'Lobster', cursive;
 	padding: 7px 15px;
 	font-size: 20px;
 	border: none;
-	background-color: #ff3333;
+	background-color: $red;
 	color: $white !important;
 	box-shadow: 0px 0px 3px black;
 	&:hover {
@@ -69,8 +70,8 @@ div.navbar-header {
 }
 
 .img-circle {
-	width: 30px;
-	height: 30px;
+	width: 31px;
+	height: 31px;
 }
 .navbar-nav>li>p {
 	margin-top: 15px;
@@ -79,11 +80,6 @@ div.navbar-header {
 
 
 /*end*/
-
-.footer {
-	color: $white;
-	padding: 10px 0px;
-}
 
 .btn>a {
     color: $white;
@@ -102,16 +98,10 @@ div.navbar-header {
 }
 
 .description {
-	padding: 0px 15px;
+	padding: 0px 10px;
 }
 
-.float-right {
-		float: right;
-		margin-right: 10px;
-	}
-
 .float-left {
-		float: left;
 		margin-left: 10px;
 		color: $sky_blue;
 	}
@@ -123,6 +113,16 @@ div.navbar-header {
 		color: $sky_blue;
 		text-shadow: 0 0 4px $navy, 2px 2px 3px black;
 		margin-bottom: 30px;
+	}
+	.view {
+		border-radius: 5px;
+		margin: 20px 30% 20px 30%;
+		padding: -5px;
+		text-shadow: 1px 1px 1px black;
+		&:hover {
+			background-color: $white;
+			color: $sky_blue;
+		}
 	}
 
 
@@ -176,15 +176,6 @@ $width: 30%;
 		padding-bottom: 30px;
 
 	}
-	.view {
-		border-radius: 5px;
-		margin-left: 20px;
-		text-shadow: 1px 1px 1px black;
-		&:hover {
-			background-color: #fff;
-			color: $sky_blue;
-		}
-	}
 
 	div.share-container {
 		margin-top: 50px;
@@ -218,17 +209,17 @@ $width: 30%;
 **/
 
 .loader {
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #3498db;
-  margin-bottom: 50px; 
-  width: 130px;
   height: 130px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-  margin-right: auto;
+  margin-bottom: 50px;
   margin-left: auto;
+  margin-right: auto;
   margin-top: 70px;
+  width: 130px;
 }
 
 @-webkit-keyframes spin {
@@ -244,8 +235,10 @@ $width: 30%;
 /*Styling for the footer*/
 
 .footer {
-		font-size: 12px;
-		margin-top: 30px;
+	color: $white;
+    font-size: 12px;
+    margin-top: 75px;
+	padding: 10px 0px;
 	}
 
 	/*end*/
