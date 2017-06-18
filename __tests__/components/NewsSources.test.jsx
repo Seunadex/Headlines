@@ -3,6 +3,9 @@ import { mount } from 'enzyme';
 import chai, { expect } from 'chai';
 import chaiEnzyme from 'chai-enzyme';
 import NewsSources from '../../src/components/NewsSources';
+import Dispatcher from '../../src/dispatcher/AppDispatcher';
+
+jest.mock('../../src/dispatcher/AppDispatcher');
 
 const wrapper = mount(<NewsSources />);
 chai.use(chaiEnzyme());
@@ -18,6 +21,12 @@ describe('Test for News Sources', () => {
     it('should contain only one search node', () => {
       expect(wrapper.find('Search')).to.be.present();
       expect(wrapper.find('Search')).to.have.length(1);
+    });
+  });
+  describe('NewsSource', () => {
+    it('should be able to set state', () => {
+      wrapper.setState({ sources: [] });
+      expect(wrapper.find('.SourcesState.sources')).to.have.length(0);
     });
   });
 });

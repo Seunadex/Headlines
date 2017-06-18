@@ -15,7 +15,8 @@ describe('User', () => {
     expect(User.isLogggedIn).to.not.equal(false);
     expect(User.isLoggedIn).to.equal(true);
   });
-
+});
+describe('The component', () => {
   it('should log the user out correctly', () => {
     User.logOut();
     expect(User.isLoggedIn).to.equal(false);
