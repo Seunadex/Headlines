@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { hashHistory } from 'react-router';
 import { Card, CardBlock, CardText, Container, Row, Col, Button, Jumbotron } from 'reactstrap';
-import newsSourcesStore from '../stores/NewsSourcesStore';
-import NewsActions from '../actions/NewsActions';
+import sourceStore from '../stores/SourceStore';
+import SourceAction from '../actions/SourceAction';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import Search from './NewsSearch';
@@ -39,12 +39,12 @@ class NewsSources extends Component {
    * It updates the state of this component when it is rendered.
    */
   componentDidMount() {
-    newsSourcesStore.addChangeListener(this.onChange);
-    NewsActions.fetchSources();
+    sourceStore.addChangeListener(this.onChange);
+    SourceAction.fetchSources();
   }
 
   componentWillUnmount() {
-    newsSourcesStore.removeChangeListener(this.onChange);
+    sourceStore.removeChangeListener(this.onChange);
   }
 
   /**
@@ -75,7 +75,7 @@ class NewsSources extends Component {
    */
   getNewsSources() {
     return {
-      sources: newsSourcesStore.getAll(),
+      sources: sourceStore.getAll(),
     };
   }
 
@@ -111,7 +111,7 @@ class NewsSources extends Component {
         <Card className="card-row">
           <div className="text-center title"><h2>{source.title}</h2></div>
           <CardBlock>
-            <CardText className="description">{source.description}</CardText>
+            <CardText className="description">{source.description.substr(0, 200)}...</CardText>
             <div className="float-left">
               <CardText className="category">
                 <span><strong>Category</strong>
@@ -121,7 +121,7 @@ class NewsSources extends Component {
                   /> {source.category}</span>
               </CardText>
             </div>
-            <div className="float-right">
+            <div>
               <Button
                 color="info"
                 className="view"
