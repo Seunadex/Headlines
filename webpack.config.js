@@ -53,6 +53,12 @@ module.exports = {
         API_KEY: JSON.stringify(process.env.API_KEY),
       },
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      minimize: true,
+      compressor: {
+        warnings: false,
+      },
+    }),
   ],
 };
