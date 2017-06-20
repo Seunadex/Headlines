@@ -1,9 +1,54 @@
 import axios from 'axios';
 import Constants from '../constants/Constants';
 import Dispatcher from '../dispatcher/AppDispatcher';
-import SourceProperties from './SourceProperties';
 import Api from '../utils/Api';
 
+/**
+ * @desc contains methods that extract relevant fields
+ * from the data received the news API.
+ */
+class SourceProperties {
+/**
+ * Creates an instance of SourceProperties.
+ * @memberof SourceProperties
+ */
+  constructor() {
+    this.sources = [];
+  }
+
+  /**
+   * @desc extract specific data fields from data received from the API end point.
+   *
+   * @param {any} index
+   * @param {any} id
+   * @param {any} name
+   * @param {any} description
+   * @param {any} category
+   * @param {any} sortBysAvailable
+   * @returns {void}
+   * @memberof SourceProperties
+   */
+  add(index, id, name, description, category, sortBysAvailable) {
+    this.sources.push({
+      href: `/articles/${id}`,
+      id: index,
+      header: name,
+      description,
+      category,
+      title: name,
+      sortBysAvailable,
+    });
+  }
+
+  /**
+   * @desc returns the value of the sources property everytime it is called.
+   * @returns {object} object containing all news sources
+   */
+  get() {
+    return this.sources;
+  }
+}
+export default SourceProperties;
 
 const SourceAction = {
   fetchSources: () => {
@@ -11,9 +56,9 @@ const SourceAction = {
     const sourceProperties = new SourceProperties();
 
     return axios.get(Api.sourceLink)
-              .then((response) => {
-                if (response.status === 200) {
-                  const sources = response.data.sources;
+              .then((responseText) => {
+                if (responseText.statusText === 'OK') {
+                  const sources = responseText.data.sources;
                   sources.forEach((source, index) => {
                     sourceProperties.add(index,
                         source.id,
@@ -32,5 +77,4 @@ const SourceAction = {
               });
   },
 };
-
-export default SourceAction;
+module.exports = SourceAction;

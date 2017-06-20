@@ -6,7 +6,6 @@ import SourceAction from '../../src/actions/SourceAction';
 import Constants from '../../src/constants/Constants';
 import sampleSources from '../../__mock__/sampleSources.json';
 
-
 describe(' Source Action test', () => {
   let mockAxios;
   let dispatchSpy;

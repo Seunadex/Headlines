@@ -76,10 +76,11 @@ class NewsArticles extends Component {
   }
 
   /**
+   * 
    * @desc makes an api call to sort news articles
-   * @param {function} event represents the onChange event that
-   * triggers change in user input on the drop-down options.
-   *
+   * @param {any} event represents the onChange event that triggers change in user input on the drop-down options.
+   * 
+   * @memberof NewsArticles
    */
   handleSort(event) {
     const { params } = this.props;

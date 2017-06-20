@@ -3,13 +3,19 @@ import createHistory from 'history/createBrowserHistory';
 import User from '../model/User';
 
 const history = createHistory({
-     /**
-     * Cause a full page refreshes
-     */
   forceRefresh: true,
 });
 
+/**
+ * @class Logout
+ * @extends {Component}
+ */
 class Logout extends Component {
+  /**
+   * @method
+   * @returns {void}
+   * @memberof Logout
+   */
   componentWillMount() {
     if (User.isLoggedIn) {
       User.logOut();

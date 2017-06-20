@@ -1,9 +1,55 @@
 import axios from 'axios';
 import Constants from '../constants/Constants';
 import Dispatcher from '../dispatcher/AppDispatcher';
-import ArticleProperties from './ArticleProperties';
 import Api from '../utils/Api';
 
+/**
+ *
+ * @desc Contains parameters to extract from API data.
+ * @class ArticleProperties
+ */
+class ArticleProperties {
+  /**
+   * Creates an instance of ArticleProperties with a news property.
+   *
+   * @memberof ArticleProperties
+   */
+  constructor() {
+    this.news = [];
+  }
+
+/**
+ *
+ *
+ * @param {any} title
+ * @param {any} description
+ * @param {any} meta
+ * @param {any} link
+ * @param {any} image
+ * @returns {object}
+ * @memberof ArticleProperties
+ */
+  add(title, description, meta, link, image) {
+    this.news.push({ href: link,
+      header: title,
+      description,
+      meta,
+      image,
+    });
+  }
+
+  /**
+   *
+   * @desc returns the value of news property
+   *
+   */
+  get() {
+    return this.news;
+  }
+
+
+}
+export default ArticleProperties;
 
 const ArticleAction = {
 
@@ -22,11 +68,11 @@ const ArticleAction = {
 
     Api.addQuery('source', source);
     return axios.get(Api.getLink())
-      .then((response) => {
+      .then((responseText) => {
     // initialize variable to news features
         const feeds = new ArticleProperties();
-        if (response.status === 200) {
-          const articles = response.data.articles;
+        if (responseText.statusText === 'OK') {
+          const articles = responseText.data.articles;
           articles.forEach((article) => {
             feeds.add(article.title,
                 article.description,
@@ -45,4 +91,4 @@ const ArticleAction = {
   },
 };
 
-export default ArticleAction;
+module.exports = ArticleAction;
