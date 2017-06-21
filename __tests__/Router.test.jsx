@@ -5,11 +5,11 @@ import ReactShallowRenderer from 'react-test-renderer/shallow';
 import App from '../src/Router';
 import User from '../src/model/User';
 
-const wrapper = mount(<App />);
-
 jest.dontMock('../src/Router.js');
-
+User.isLoggedIn = true;
 describe('<Router />', () => {
+  const wrapper = shallow(<App />);
+
   it('should properly run tests', () => {
     expect(2)
       .toBe(2);
@@ -21,6 +21,8 @@ describe('<Router />', () => {
       .toBe('app');
   });
   it('should log in correctly', () => {
-    expect(User.isLoggedIn).toBeTruthy();
+    wrapper.instance().requireAuth();
+    User.isLoggedIn = false;
+    wrapper.instance().verifyAuth();
   });
 });
