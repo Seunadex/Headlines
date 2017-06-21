@@ -88,6 +88,9 @@ div.navbar-header {
 	position: fixed;
 	right: 0px;
 	bottom: 0px;
+	&:hover {
+		cursor: pointer;
+	}
 }
 
 /*styling for the news source*/
@@ -133,6 +136,7 @@ div.navbar-header {
 $width: 30%;
 .article-frame {
 	text-align: center;
+	color: $white !important;
 	margin: 16px;
 	width: $width;
 	height: 450px;
@@ -146,6 +150,9 @@ $width: 30%;
 		cursor: pointer;
 	}
 
+}
+Input.sortBar {
+	float: right;
 }
 .params-uppercase {
 	text-transform: capitalize;

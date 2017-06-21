@@ -76,10 +76,11 @@ class NewsArticles extends Component {
   }
 
   /**
+   * 
    * @desc makes an api call to sort news articles
-   * @param {function} event represents the onChange event that
-   * triggers change in user input on the drop-down options.
-   *
+   * @param {any} event represents the onChange event that triggers change in user input on the drop-down options.
+   * 
+   * @memberof NewsArticles
    */
   handleSort(event) {
     const { params } = this.props;
@@ -97,6 +98,7 @@ class NewsArticles extends Component {
       return (<div>
         <Header />
         <div className="loader" />
+        <h1 className='text-center'>Loading...</h1>
       </div>);
     }
     return (
@@ -111,7 +113,7 @@ class NewsArticles extends Component {
             <Col xs="6" sm="6" md="4">
               <Form>
                 <FormGroup>
-                  <Input type="select" name="select" onChange={this.handleSort}>
+                  <Input type="select" name="select" className='sortbar' onChange={this.handleSort}>
                     {option}
                   </Input>
                 </FormGroup>
@@ -129,7 +131,7 @@ class NewsArticles extends Component {
               const myStyle = {
                 height: '130px',
                 background: `url(${news.image}) center center`,
-                width: '80%',
+                width: '100%',
                 backgroundSize: 'cover',
               };
               return (

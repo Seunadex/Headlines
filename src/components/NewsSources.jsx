@@ -134,7 +134,7 @@ class NewsSources extends Component {
           ));
     let output = {};
     if (!this.state.sources.length) {
-      output = <div className="loader" />;
+      output = <div><div className="loader" /><h1 className='text-center'>Loading...</h1></div>;
     } else {
       output = newsNode;
     }

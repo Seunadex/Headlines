@@ -12,13 +12,14 @@ const history = createHistory({
 
 const clientId = process.env.CLIENT_ID;
 
-
+/**
+ * 
+ * 
+ * @class Login
+ * @extends {Component}
+ */
 class Login extends Component {
   componentWillMount() {
-      /**
-       * check if the user is logged in
-       * push, replace, and go to navigate around
-       */
     if (User.isLoggedIn) {
       history.push('/');
     }
