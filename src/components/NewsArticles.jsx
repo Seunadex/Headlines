@@ -83,7 +83,6 @@ class NewsArticles extends Component {
    * @memberof NewsArticles
    */
   handleSort(event) {
-    const { params } = this.props;
     event.preventDefault();
     const targetVal = event.target.value;
     ArticleAction.fetchNews(params.id, targetVal);
