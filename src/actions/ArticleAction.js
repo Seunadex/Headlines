@@ -36,6 +36,7 @@ class ArticleProperties {
       meta,
       image,
     });
+    console.log(this.news);
   }
 
   /**

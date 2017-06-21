@@ -15,10 +15,10 @@
 * User can share news articles on social media(facebook, twitter, linkedIn, and googleplus).
 
 ## Technologies
-* **[React(flux architecture)](https://facebook.github.io/react/)**
-* **[Node Js](https://nodejs.org/en/)**
-* **[Webpack](https://webpack.github.io/)**
-* **[Express](https://expressjs.com/)**
+* **[React(flux architecture)](https://facebook.github.io/react/)** -
+* **[Node Js](https://nodejs.org/en/)** -
+* **[Webpack](https://webpack.github.io/)** - webpack is a module bundler for modern JavaScript applications.
+* **[Express](https://expressjs.com/)** -
 * **[Babel](https://babeljs.io/)**
 * **[Axios](https://github.com/mzabriskie/axios)**
 * **[Jest](https://facebook.github.io/jest/)** 
