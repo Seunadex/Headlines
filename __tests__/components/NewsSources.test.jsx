@@ -6,7 +6,6 @@ import NewsSources from '../../src/components/NewsSources';
 import Dispatcher from '../../src/dispatcher/AppDispatcher';
 
 jest.mock('../../src/dispatcher/AppDispatcher');
-
 const wrapper = mount(<NewsSources />);
 chai.use(chaiEnzyme());
 
