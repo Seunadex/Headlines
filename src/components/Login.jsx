@@ -31,12 +31,12 @@ class Login extends Component {
       window.location.reload();
     };
     return (
-      <div>
+      <div className="outline">
         <div className="loginbody">
           <div className="container-fluid text-center">
             <h1>headlines</h1>
-            <p className="login-para">View news headlines as it comes out</p>
-            <p className="login-para">Stay up to date with news around the world</p>
+            <p className="loginpara">View news headlines as it comes out</p>
+            <p className="loginpara">Stay up to date with news around the world</p>
 
             <GoogleLogin
               className="login"

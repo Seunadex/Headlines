@@ -23,9 +23,9 @@ class ArticleStore extends EventEmitter {
   }
 
   /**
-   * @returns {object}
-   * @desc gets the value of the news property
    *
+   * @desc gets the value of the news property
+   * @returns {object}
    * @memberof ArticleStore
    */
   getAll() {
@@ -64,7 +64,6 @@ class ArticleStore extends EventEmitter {
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
-
 }
 
 const articleStore = new ArticleStore();

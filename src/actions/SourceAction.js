@@ -19,12 +19,12 @@ class SourceProperties {
   /**
    * @desc extract specific data fields from data received from the API end point.
    *
-   * @param {any} index
-   * @param {any} id
-   * @param {any} name
-   * @param {any} description
-   * @param {any} category
-   * @param {any} sortBysAvailable
+   * @param {string} index
+   * @param {string} id
+   * @param {string} name
+   * @param {string} description
+   * @param {string} category
+   * @param {string} sortBysAvailable
    * @returns {void}
    * @memberof SourceProperties
    */

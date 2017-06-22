@@ -50,7 +50,7 @@ $lobster: 'Lobster', cursive;
 
 }
 
-.login-para {
+.loginpara {
 	font-size: 35px;
 	color: $teal;
 }
@@ -70,8 +70,8 @@ div.navbar-header {
 }
 
 .img-circle {
-	width: 31px;
-	height: 31px;
+	width: 32px;
+	height: 32px;
 }
 .navbar-nav>li>p {
 	margin-top: 15px;
@@ -88,6 +88,7 @@ div.navbar-header {
 	position: fixed;
 	right: 0px;
 	bottom: 0px;
+	z-index: 2;
 	&:hover {
 		cursor: pointer;
 	}
@@ -117,16 +118,16 @@ div.navbar-header {
 		text-shadow: 0 0 4px $navy, 2px 2px 3px black;
 		margin-bottom: 30px;
 	}
-	.view {
-		border-radius: 5px;
-		margin: 20px 30% 20px 30%;
-		padding: -5px;
-		text-shadow: 1px 1px 1px black;
-		&:hover {
-			background-color: $white;
-			color: $sky_blue;
-		}
+.view {
+	border-radius: 5px;
+	margin: 20px 30% 20px 30%;
+	padding: -5px;
+	text-shadow: 1px 1px 1px black;
+	&:hover {
+		background-color: $white;
+		color: $sky_blue;
 	}
+}
 
 
 
@@ -161,100 +162,110 @@ Input.sortBar {
 	margin-top: 20px;
 }
 
-	a {
-		text-decoration: none;
-	}
-
-	.title {
-		@include font;
-	}
-	.subtitle {
-		font-size: 17px;
-	}
-
-	.justify-content-center {
-		margin-top: 30px;
-	}
-
-	.card-row {
-		height: 270px;
-		@include shadow;
-		margin-top: 50px;
-		padding-bottom: 30px;
-
-	}
-
-	div.share-container {
-		margin-top: 50px;
-		margin-left: 20px;
-		text-align: center;
-	}
-
-	div.share-button {
-		margin-right: 20px;
-	}
-	.Demo__some-network__share-count {
-        margin-top: 3px;
-        font-size: 12px;
-		margin-right: 18px;
-      }
-
-
-	div.social-share {
-		display: inline-block;
-		&:hover {
-			font-size: 40px;
-			opacity: 0.75;
-	}
+a {
+	text-decoration: none;
 }
-	div.face, div.twit, div.link, div.google {
-		@include move;
+
+.title {
+	@include font;
+}
+.subtitle {
+	font-size: 17px;
+}
+
+.justify-content-center {
+	margin-top: 30px;
+}
+
+.card-row {
+	height: 270px;
+	@include shadow;
+	margin-top: 50px;
+	padding-bottom: 30px;
+
+}
+
+div.share-container {
+	margin-top: 50px;
+	margin-left: 20px;
+	text-align: center;
+}
+
+div.share-button {
+	margin-right: 20px;
+}
+.Demo__some-network__share-count {
+	margin-top: 3px;
+	font-size: 12px;
+	margin-right: 18px;
 	}
+
+
+div.social-share {
+	display: inline-block;
+	&:hover {
+		font-size: 40px;
+		opacity: 0.75;
+}
+}
+div.face, div.twit, div.link, div.google {
+	@include move;
+}
 
 /**
 *end
 **/
 
 .loader {
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  height: 130px;
-  margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 70px;
-  width: 130px;
+	-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;
+	border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #002c5a;
+	height: 130px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 70px;
+	width: 130px;
 }
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }
 
 /*Styling for the footer*/
 
 .footer {
 	color: $white;
-    font-size: 12px;
-    margin-top: 75px;
+	font-size: 12px;
+	margin-top: 75px;
 	padding: 10px 0px;
-	}
+}
 
 	/*end*/
 
-/* Responsiveness 
-@media only screen and (max-width: 768px) {
+	/**
+	* Responsiveness
+	*/
+@media only screen and (max-width: 554px) {
 	.article-frame {
-	margin: 18px;
-	width: 50%;
- }
+		width: 90% !important;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
 }
-*/
+
+@media (min-width: 555px) and (max-width: 990px) {
+	.article-frame {
+		width: 45% !important;
+		margin: 16px 10px 16px 10px;
+		
+	}
+}
