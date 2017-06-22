@@ -4,7 +4,6 @@ import expect from 'expect';
 import Dispatcher from '../../src/dispatcher/AppDispatcher';
 import ArticleAction from '../../src/actions/ArticleAction';
 import mockArticle from '../../__mock__/mockArticle.json';
-import NewsArticles from '../../src/components/NewsArticles.jsx';
 
 describe('Article Action test', () => {
   let mockAxios;
@@ -21,10 +20,11 @@ describe('Article Action test', () => {
     dispatchSpy = sinon.spy(Dispatcher, 'dispatch');
   });
   afterEach(() => {
-    axios.get.restore();
+    mockAxios.restore();
     Dispatcher.dispatch.restore();
   });
-  test('should call axios and dispatcher once', () => {
+
+  it('should call axios and dispatcher once', () => {
     ArticleAction.fetchNews().then(() => {
       expect(mockAxios.calledOnce).toBe(true);
       expect(dispatchSpy.calledOnce).toBe(true);
@@ -37,6 +37,7 @@ describe('Article Action test', () => {
       expect(dispatchSpy.getCall(0).args[0].type).toBe('FETCH_NEWS');
     });
   });
+
   it('Should dispatch the news article to the store', () => {
     ArticleAction.fetchNews().then(() => {
       expect(mockAxios).to.have.callCount(1);

@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import NewsSources from './components/NewsSources';
@@ -14,13 +14,11 @@ class App extends Component {
  }
 
 requireAuth(nextState, replace) {
-  if (!User.isLoggedIn) {
-    replace({
-      pathname: '/login',
-      state: { nextPathname: nextState.location.pathname },
-
-    });
-  }
+    if (!User.isLoggedIn) {
+      replace({
+        pathname: '/login',
+      })
+    }
 };
 
 verifyAuth(nextState, replace) {

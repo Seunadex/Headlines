@@ -5,7 +5,7 @@ import ReactShallowRenderer from 'react-test-renderer/shallow';
 import App from '../src/Router';
 import User from '../src/model/User';
 
-jest.dontMock('../src/Router.js');
+jest.dontMock('../src/Router');
 User.isLoggedIn = true;
 describe('<Router />', () => {
   const wrapper = shallow(<App />);

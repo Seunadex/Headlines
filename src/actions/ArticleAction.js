@@ -20,12 +20,11 @@ class ArticleProperties {
 
 /**
  *
- *
- * @param {any} title
- * @param {any} description
- * @param {any} meta
- * @param {any} link
- * @param {any} image
+ * @param {string} title
+ * @param {string} description
+ * @param {string} meta
+ * @param {string} link
+ * @param {string} image
  * @returns {object}
  * @memberof ArticleProperties
  */
@@ -36,12 +35,12 @@ class ArticleProperties {
       meta,
       image,
     });
-    console.log(this.news);
   }
 
   /**
    *
    * @desc returns the value of news property
+   * @returns {object}
    *
    */
   get() {
@@ -56,8 +55,8 @@ const ArticleAction = {
 
 /**
  * Fetch Articles
- * @param id represents the name of the source
- * @param val represents the value of the sortBysAvailable
+ * @param {string} id represents the name of the source
+ * @param {string} val represents the value of the sortBysAvailable
  */
   fetchNews: (id, val) => {
     /**
@@ -70,7 +69,6 @@ const ArticleAction = {
     Api.addQuery('source', source);
     return axios.get(Api.getLink())
       .then((responseText) => {
-    // initialize variable to news features
         const feeds = new ArticleProperties();
         if (responseText.statusText === 'OK') {
           const articles = responseText.data.articles;
@@ -80,7 +78,7 @@ const ArticleAction = {
                 article.author,
                 article.url,
                 article.urlToImage,
-      );
+            );
           });
 
           Dispatcher.dispatch({

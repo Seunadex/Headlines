@@ -5,9 +5,10 @@ import User from '../../model/User';
  *@returns {*} element to be rendered
  */
 const Header = () => {
-  const image = User.imageUrl;
+  const name = localStorage.current_user;
+  const image = localStorage.current_user_image;
   return (
-    <div className="navtop">
+    <div className="nav-top">
       <nav className="navbar-inverse">
         <div className="container-fluid">
           <div className="navbar-header">
@@ -31,7 +32,7 @@ const Header = () => {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <p>Welcome</p>
+                <p>{name}</p>
               </li>
               <li className="dropdown">
                 <a
