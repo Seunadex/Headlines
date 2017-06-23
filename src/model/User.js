@@ -1,5 +1,10 @@
 import Cookies from 'js-cookie';
 
+/**
+ *
+ *
+ * @class User
+ */
 class User {
   /**
    * @description Creates an instance of User.
@@ -10,7 +15,7 @@ class User {
   }
   /**
    *@description  logs the user in.
-   * @param {any} response an object containing user
+   * @param {object} response an object containing user
    * profile
    * @memberof User
    * @returns {undefined} it returns no value
@@ -28,7 +33,7 @@ class User {
   }
   /**
    * @description logs the user out.
-   * @returns{undefined} it has no return value
+   * @returns {undefined} it has no return value
    */
   logOut() {
     this.isLoggedIn = false;

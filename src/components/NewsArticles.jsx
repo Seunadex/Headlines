@@ -10,7 +10,7 @@ import Share from './SocialShare';
 
 
 /**
- * represents the NewsArticles component
+ * @desc represents the NewsArticles component
  * @class NewsArticles
  * @extends {Component}
  */
@@ -78,7 +78,7 @@ class NewsArticles extends Component {
   /**
    * 
    * @desc makes an api call to sort news articles
-   * @param {any} event represents the onChange event that triggers change in user input on the drop-down options.
+   * @param {string} event represents the onChange event that triggers change in user input on the drop-down options.
    * 
    * @memberof NewsArticles
    */
@@ -124,7 +124,7 @@ class NewsArticles extends Component {
           </Row>
         </Container>
 
-        <Container className="justify-content-center">
+        <Container fluid className="justify-content-center">
           <Row>
             {this.state.articles.map((news, index) => {
               const myStyle = {
@@ -135,7 +135,7 @@ class NewsArticles extends Component {
               };
               return (
                 <a href={news.href} key={index} rel="noopener noreferrer" target="_blank" >
-                  <Col xs="12" sm="6" md="4" className="article-frame">
+                  <Col className="col-xs-12 col-sm-6 col-md-4 article-frame">
                     <Card>
                       <CardBlock>
                         <CardTitle className="title">{news.meta}</CardTitle>

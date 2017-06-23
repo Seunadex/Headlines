@@ -4,7 +4,7 @@
  [![Coverage Status](https://coveralls.io/repos/github/Seunadex/Headlines/badge.svg?branch=master)](https://coveralls.io/github/Seunadex/Headlines?branch=master)
 
 # Headlines
-* A front-end application built with react and express that takes advantage of the functionalities NewsAPI provides, by providing real-time news from over 70 different sources
+* A front-end application built with react, express, compiled with babel, that takes advantage of the functionalities NewsAPI provides, by providing real-time news from over 70 different sources.
 
 ## Features
 * Login with Google.
@@ -15,16 +15,16 @@
 * User can share news articles on social media(facebook, twitter, linkedIn, and googleplus).
 
 ## Technologies
-* **[React(flux architecture)](https://facebook.github.io/react/)**
-* **[Node Js](https://nodejs.org/en/)**
-* **[Webpack](https://webpack.github.io/)**
-* **[Express](https://expressjs.com/)**
-* **[Babel](https://babeljs.io/)**
-* **[Axios](https://github.com/mzabriskie/axios)**
-* **[Jest](https://facebook.github.io/jest/)** 
+* **[React(flux architecture)](https://facebook.github.io/react/)** - React architecture used in the app framework design.
+* **[Node Js](https://nodejs.org/en/)** -
+* **[Webpack](https://webpack.github.io/)** - webpack is a module bundler for modern JavaScript applications.
+* **[Express](https://expressjs.com/)** - It is used in serving the app.
+* **[Babel](https://babeljs.io/)** - It is used in transpiling es6 code to browser compactible code.
+* **[Axios](https://github.com/mzabriskie/axios)** - Promised based HTTP for browser and node.js.
+* **[Jest](https://facebook.github.io/jest/)** - Used in testing all javascript code.
 
 ## Installation and setup
-* Clone the repository using your favorite terminal with the command `git clone (repo url)`
+* Clone the repository using your favorite terminal with the command `git clone https://github.com/Seunadex/Headlines.git`
 * Navigate into the directory and run `$ cd headlines`
 * Install all dependencies by running `$ npm install`
 * Start the app by running `$ npm start`
