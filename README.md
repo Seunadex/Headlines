@@ -1,7 +1,7 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  [![Build Status](https://travis-ci.org/Seunadex/Headlines.svg?branch=master)](https://travis-ci.org/Seunadex/Headlines)
  [![Code Climate](https://codeclimate.com/github/Seunadex/Headlines/badges/gpa.svg)](https://codeclimate.com/github/Seunadex/Headlines)
- [![Coverage Status](https://coveralls.io/repos/github/Seunadex/Headlines/badge.svg?branch=master)](https://coveralls.io/github/Seunadex/Headlines?branch=master)
+ [![Coverage Status](https://coveralls.io/repos/github/Seunadex/Headlines/badge.svg?branch=chore%2Fimplement-more-feedback)](https://coveralls.io/github/Seunadex/Headlines?branch=chore%2Fimplement-more-feedback)
 
 # Headlines
 * A front-end application built with react using flux architecture, express and compiled with babel, that takes advantage of the functionalities NewsAPI provides, by providing real-time news from over 70 different sources.
