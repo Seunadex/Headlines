@@ -21,6 +21,7 @@ class Search extends React.Component {
           </InputGroupAddon>
           <Input
             className="app-input"
+            type="text"
             placeholder="Quick Search"
             value={this.props.searchValue}
             onChange={this.props.handleSearch}

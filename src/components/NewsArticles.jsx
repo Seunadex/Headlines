@@ -4,13 +4,13 @@ import { Form, FormGroup, Input, Card, CardText, CardBlock,
 import PropTypes from 'prop-types';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
-import newsStore from '../stores/NewsStore';
-import NewsActions from '../actions/NewsActions';
+import articleStore from '../stores/ArticleStore';
+import ArticleAction from '../actions/ArticleAction';
 import Share from './SocialShare';
 
 
 /**
- * represents the NewsArticles component
+ * @desc represents the NewsArticles component
  * @class NewsArticles
  * @extends {Component}
  */
@@ -36,12 +36,12 @@ class NewsArticles extends Component {
    */
   componentDidMount() {
     const { params } = this.props;
-    newsStore.addChangeListener(this.onChange);
-    NewsActions.fetchNews(params.id);
+    articleStore.addChangeListener(this.onChange);
+    ArticleAction.fetchNews(params.id);
   }
 
   componentWillUnmount() {
-    newsStore.removeChangeListener(this.onChange);
+    articleStore.removeChangeListener(this.onChange);
   }
 
   /**
@@ -50,7 +50,7 @@ class NewsArticles extends Component {
    *
    */
   onChange() {
-    this.setState({ articles: newsStore.getAll() });
+    this.setState({ articles: articleStore.getAll() });
   }
   /**
    *
@@ -60,32 +60,22 @@ class NewsArticles extends Component {
    */
   getArticles() {
     return {
-      articles: this.newsStore.getAll(),
+      articles: this.articleStore.getAll(),
     };
   }
 
   /**
-   *
-   * @desc calls getArticles method
-   * @return represents the value of the articles property
-   *
+   * 
+   * @desc makes an api call to sort news articles
+   * @param {string} event represents the onChange event that triggers change in user input on the drop-down options.
+   * 
    * @memberof NewsArticles
    */
-  getInitialArticlesState() {
-    return this.getArticles();
-  }
-
-  /**
-   * @desc makes an api call to sort news articles
-   * @param {function} event represents the onChange event that
-   * triggers change in user input on the drop-down options.
-   *
-   */
   handleSort(event) {
-    const { params } = this.props;
     event.preventDefault();
     const targetVal = event.target.value;
-    NewsActions.fetchNews(params.id, targetVal);
+    const { params } = this.props;
+    ArticleAction.fetchNews(params.id, targetVal);
   }
 
   render() {
@@ -97,6 +87,7 @@ class NewsArticles extends Component {
       return (<div>
         <Header />
         <div className="loader" />
+        <h2 className='text-center'>Loading...</h2>
       </div>);
     }
     return (
@@ -111,32 +102,30 @@ class NewsArticles extends Component {
             <Col xs="6" sm="6" md="4">
               <Form>
                 <FormGroup>
-                  <Input type="select" name="select" onChange={this.handleSort}>
+                  <Input type="select" name="select" className='sortbar' onChange={this.handleSort}>
                     {option}
                   </Input>
                 </FormGroup>
               </Form>
             </Col>
-            <button type="button" className="btn btn-info back">
-              <a href="/" >
+            <a type="button" href="/" className="btn btn-info back">
                 Back to Home
-              </a>
-            </button>
+            </a>
           </Row>
         </Container>
 
-        <Container className="justify-content-center">
+        <Container fluid className="justify-content-center">
           <Row>
             {this.state.articles.map((news, index) => {
               const myStyle = {
                 height: '130px',
                 background: `url(${news.image}) center center`,
-                width: '80%',
+                width: '100%',
                 backgroundSize: 'cover',
               };
               return (
                 <a href={news.href} key={index} rel="noopener noreferrer" target="_blank" >
-                  <Col xs="12" sm="6" md="4" className="article-frame">
+                  <Col className="col-xs-12 col-sm-6 col-md-4 article-frame">
                     <Card>
                       <CardBlock>
                         <CardTitle className="title">{news.meta}</CardTitle>

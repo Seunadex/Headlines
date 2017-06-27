@@ -1,6 +1,5 @@
 import keyMirror from 'keymirror';
 
-// action constants
 const Constants = keyMirror({
     /**
      * fetch the news headlines based on sources

@@ -1,22 +1,26 @@
-import React from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import React,{ Component } from 'react';
+import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import Login from './components/Login';
-import Logout from './components/Logout';
 import NewsSources from './components/NewsSources';
 import NewsArticles from './components/NewsArticles';
-import User from './model/User';
+import User from '../src/model/User';
 
-const requireAuth = (nextState, replace) => {
-  if (!User.isLoggedIn) {
-    replace({
-      pathname: '/login',
-      state: { nextPathname: nextState.location.pathname },
+class App extends Component {
+ constructor() {
+  super ();
+  this.requireAuth = this.requireAuth.bind(this);
+  this.verifyAuth = this.verifyAuth.bind(this);
+ }
 
-    });
-  }
+requireAuth(nextState, replace) {
+    if (!User.isLoggedIn) {
+      replace({
+        pathname: '/login',
+      })
+    }
 };
 
-const verifyAuth = (nextState, replace) => {
+verifyAuth(nextState, replace) {
   if (User.isLoggedIn) {
     replace({
       pathname: '/',
@@ -26,16 +30,21 @@ const verifyAuth = (nextState, replace) => {
   }
 };
 
-const App = () =>
-   (
+render() {
+  return (
+
      <div>
        <Router history={hashHistory}>
-         <Route path="/" component={NewsSources} onEnter={requireAuth} />
-         <Route path="/articles/:id/:sort" component={NewsArticles} onEnter={requireAuth} />
-         <Route path="/login" component={Login} onEnter={verifyAuth} />
-         <Route path="/logout" component={Logout} />
+         <Route path="/" component={NewsSources} onEnter={this.requireAuth} />
+         <Route path="/articles/:id/:sort" component={NewsArticles} onEnter={this.requireAuth} />
+         <Route path="/login" component={Login} onEnter={this.verifyAuth} />
        </Router>
      </div>
   );
+}
+
+  
+};
+
 
 export default App;

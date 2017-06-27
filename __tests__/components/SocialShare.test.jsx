@@ -14,7 +14,7 @@ describe('Social media share', () => {
     });
     it('should have a four social-share className', () => {
       expect((wrapper).find('.social-share')).to.have.length(4);
-      expect((wrapper).find('.Demo__some-network__share-count')).to.have.length(4);
+      expect((wrapper).find('.share-count')).to.have.length(4);
     });
   });
 });

@@ -8,14 +8,14 @@ const CHANGE_EVENT = 'change';
 /**
  *
  * Represents Flux Store for news articles component.
- * @class NewsStore
+ * @class ArticleStore
  * @extends {EventEmitter}
  */
-class NewsStore extends EventEmitter {
+class ArticleStore extends EventEmitter {
   /**
-   * Creates an instance of NewsStore.
+   * Creates an instance of ArticleStore.
    *
-   * @memberof NewsStore
+   * @memberof ArticleStore
    */
   constructor() {
     super();
@@ -23,10 +23,10 @@ class NewsStore extends EventEmitter {
   }
 
   /**
-   * @returns {object}
-   * @desc gets the value of the news property
    *
-   * @memberof NewsStore
+   * @desc gets the value of the news property
+   * @returns {object}
+   * @memberof ArticleStore
    */
   getAll() {
     return this.news;
@@ -36,7 +36,7 @@ class NewsStore extends EventEmitter {
    *
    * @description notify the news articles component of changes in state.
    * @return {void}
-   * @memberof NewsStore
+   * @memberof articleStore
    */
   emitChange() {
     this.emit(CHANGE_EVENT);
@@ -48,7 +48,7 @@ class NewsStore extends EventEmitter {
    * @desc adds a listener that communicates state change to the sources component.
    * @param {function} callback
    * @returns {void}
-   * @memberof NewsStore
+   * @memberof ArticleStore
    */
   addChangeListener(callback) {
     this.on(CHANGE_EVENT, callback);
@@ -59,21 +59,20 @@ class NewsStore extends EventEmitter {
    * @desc removes the listener added by addChangeListener,
    * terminates communication with the articles component.
    * @param  callback
-   * @memberof NewsStore
+   * @memberof ArticleStore
    */
   removeChangeListener(callback) {
     this.removeListener(CHANGE_EVENT, callback);
   }
-
 }
 
-const newsStore = new NewsStore();
+const articleStore = new ArticleStore();
 
 Dispatcher.register((payload) => {
-  switch (payload.eventName) {
+  switch (payload.actionName) {
     case Constants.FETCH_NEWS:
-      newsStore.news = payload.news;
-      newsStore.emitChange();
+      articleStore.news = payload.news;
+      articleStore.emitChange();
       break;
 
     default:
@@ -81,4 +80,4 @@ Dispatcher.register((payload) => {
   }
 });
 
-export default newsStore;
+export default articleStore;

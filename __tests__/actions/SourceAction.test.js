@@ -2,13 +2,11 @@ import axios from 'axios';
 import sinon from 'sinon';
 import expect from 'expect';
 import Dispatcher from '../../src/dispatcher/AppDispatcher';
-import NewsActions from '../../src/actions/NewsActions';
+import SourceAction from '../../src/actions/SourceAction';
 import Constants from '../../src/constants/Constants';
 import sampleSources from '../../__mock__/sampleSources.json';
-import mockArticle from '../../__mock__/mockArticle.json';
 
-
-describe('Action test', () => {
+describe(' Source Action test', () => {
   let mockAxios;
   let dispatchSpy;
 
@@ -17,7 +15,6 @@ describe('Action test', () => {
       Promise.resolve({
         data: {
           sources: sampleSources,
-          articles: mockArticle,
         },
       })
     ));
@@ -28,36 +25,32 @@ describe('Action test', () => {
     Dispatcher.dispatch.restore();
   });
   test('should call axios and dispatcher at least once', () => {
-    NewsActions.fetchSources().then(() => {
+    SourceAction.fetchSources().then(() => {
       expect(dispatchSpy).toHaveBeenCalled();
       expect(mockAxios.calledOnce).toBe(true);
       expect(dispatchSpy.calledOnce).toBe(true);
 
       Dispatcher.dispatch({
-        eventName: 'FETCH_SOURCES',
+        actionName: 'FETCH_SOURCES',
         sources: sampleSources,
       });
       expect(dispatchSpy.getCall(0).args[0].type).toBe('FETCH_SOURCES');
     });
-    test('should call axios and dispatcher once', () => {
-      NewsActions.fetchNews().then(() => {
-        expect(mockAxios.calledOnce).toBe(true);
-        expect(dispatchSpy.calledOnce).toBe(true);
-        expect(dispatchSpy).toHaveBeenCalled();
-
-        Dispatcher.dispatch({
-          eventName: 'FETCH_NEWS',
-          news: sampleSources,
-        });
-        expect(dispatchSpy.getCall(0).args[0].type).toBe('FETCH_NEWS');
-      });
-    });
-    it('should load news articles', () => NewsActions.fetchNews('al-jazeera-english')
+    test('should load news sources', () => SourceAction.fetchSources('al-jazeera-english')
     .then(() => {
       expect(dispatchSpy).toHaveBeenCalled();
-      expect(dispatchSpy.mock.calls[0][0].eventName).toEqual(Constants.FETCH_NEWS);
-      expect(dispatchSpy.mock.calls[0][0].news[0].meta).toEqual('Al Jazeera English');
-      expect(dispatchSpy.mock.calls[0][0].news).toBeInstanceOf(Object);
+      expect(dispatchSpy.mock.calls[0][0].actionName).toEqual(Constants.FETCH_SOURCES);
+      expect(dispatchSpy.mock.calls[0][0].sources[0].meta).toEqual('Al Jazeera English');
+      expect(dispatchSpy.mock.calls[0][0].sources).toBeInstanceOf(Object);
     }));
+    it('Should dispatch the news sources to the store', () => {
+      SourceAction.fetchSources().then(() => {
+        expect(mockAxios).to.have.callCount(1);
+        expect(dispatchSpy).to.have.been.calledWith({
+          actionName: 'FETCH_SOURCES',
+          source: sampleSources,
+        });
+      });
+    });
   });
 });
