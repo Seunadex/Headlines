@@ -91,6 +91,8 @@ div.navbar-header {
 	z-index: 2;
 	&:hover {
 		cursor: pointer;
+		background-color: $white;
+		color: $sky_blue;
 	}
 }
 
@@ -120,7 +122,7 @@ div.navbar-header {
 	}
 .view {
 	border-radius: 5px;
-	margin: 20px 30% 20px 30%;
+	margin: 20px 30%;
 	padding: -5px;
 	text-shadow: 1px 1px 1px black;
 	&:hover {
@@ -128,9 +130,18 @@ div.navbar-header {
 		color: $sky_blue;
 	}
 }
-
-
-
+input[type=text] {
+    width: 150px;
+    box-sizing: border-box;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+    width: 60%;
+}
 	/*end*/
 
 	/*Styling for the article page*/
@@ -186,7 +197,7 @@ a {
 }
 
 div.share-container {
-	margin-top: 50px;
+	margin-top: 30px;
 	margin-left: 20px;
 	text-align: center;
 }
@@ -194,7 +205,7 @@ div.share-container {
 div.share-button {
 	margin-right: 20px;
 }
-.Demo__some-network__share-count {
+.share-count {
 	margin-top: 3px;
 	font-size: 12px;
 	margin-right: 18px;
@@ -260,6 +271,17 @@ div.face, div.twit, div.link, div.google {
 		margin-left: auto !important;
 		margin-right: auto !important;
 	}
+	.loader {
+	border: 10px solid #df691a;
+	border-radius: 50%;
+	border-top: 10px solid #2b3e50;
+	height: 90px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 70px;
+	width: 90px;
+}
 }
 
 @media (min-width: 555px) and (max-width: 990px) {
@@ -268,4 +290,15 @@ div.face, div.twit, div.link, div.google {
 		margin: 16px 10px 16px 10px;
 		
 	}
+	.loader {
+	border: 12px solid #df691a;
+	border-radius: 50%;
+	border-top: 12px solid #2b3e50;
+	height: 110px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 70px;
+	width: 110px;
+}
 }

@@ -59,14 +59,6 @@ class NewsSources extends Component {
       sources: SourcesState.sources || [],
     });
   }
-/**
- * @function
- * @returns {object} array
- * @description calls getNewsSources
- **/
-  getInitialSourcesState() {
-    return getNewsSources();
-  }
   /**
    * @desc links the state of the sources property of
    *  this component to the state of the news sources store.
@@ -195,7 +187,9 @@ Col.propTypes = {
 };
 
 CardBlock.propTypes = {
-  // Pass in a Component to override default element
+/**
+ * Pass in a Component to override default element
+ */
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
 };

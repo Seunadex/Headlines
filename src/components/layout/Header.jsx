@@ -1,5 +1,15 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 import User from '../../model/User';
+
+export function logOut (event) {
+  event.preventDefault();
+  localStorage.removeItem('current_user');
+  localStorage.removeItem('current_user_image')
+  browserHistory.push('/#/login');
+  location.reload();
+}
+
 /**
  *@description header element
  *@returns {*} element to be rendered
@@ -7,6 +17,7 @@ import User from '../../model/User';
 const Header = () => {
   const name = localStorage.current_user;
   const image = localStorage.current_user_image;
+  
   return (
     <div className="nav-top">
       <nav className="navbar-inverse">
@@ -32,7 +43,7 @@ const Header = () => {
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <p>{name}</p>
+                <p> <i className="fa fa-user" aria-hidden="true" /> {name}</p>
               </li>
               <li className="dropdown">
                 <a
@@ -42,11 +53,11 @@ const Header = () => {
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
-                  <img src={image} alt="img" className="img-circle" />
+                  <img  src={image} alt="img" className="img-circle" />
                   <span className="caret" /></a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a href="/#/logout">
+                    <a href="/#/logout" onClick={logOut}>
                       <i className="fa fa-sign-out" aria-hidden="true" />
                   Sign Out
                 </a>
@@ -61,3 +72,5 @@ const Header = () => {
   );
 };
 export default Header;
+
+

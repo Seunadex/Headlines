@@ -1,10 +1,9 @@
 import React,{ Component } from 'react';
 import { Router, Route, hashHistory, browserHistory } from 'react-router';
 import Login from './components/Login';
-import Logout from './components/Logout';
 import NewsSources from './components/NewsSources';
 import NewsArticles from './components/NewsArticles';
-import User from './model/User';
+import User from '../src/model/User';
 
 class App extends Component {
  constructor() {
@@ -39,7 +38,6 @@ render() {
          <Route path="/" component={NewsSources} onEnter={this.requireAuth} />
          <Route path="/articles/:id/:sort" component={NewsArticles} onEnter={this.requireAuth} />
          <Route path="/login" component={Login} onEnter={this.verifyAuth} />
-         <Route path="/logout" component={Logout} />
        </Router>
      </div>
   );

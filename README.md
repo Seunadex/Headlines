@@ -4,7 +4,7 @@
  [![Coverage Status](https://coveralls.io/repos/github/Seunadex/Headlines/badge.svg?branch=master)](https://coveralls.io/github/Seunadex/Headlines?branch=master)
 
 # Headlines
-* A front-end application built with react, express, compiled with babel, that takes advantage of the functionalities NewsAPI provides, by providing real-time news from over 70 different sources.
+* A front-end application built with react using flux architecture, express and compiled with babel, that takes advantage of the functionalities NewsAPI provides, by providing real-time news from over 70 different sources.
 
 ## Features
 * Login with Google.
@@ -14,9 +14,8 @@
 * Allow user to read the news article in a new tab.
 * User can share news articles on social media(facebook, twitter, linkedIn, and googleplus).
 
-## Technologies
+## Dependencies
 * **[React(flux architecture)](https://facebook.github.io/react/)** - React architecture used in the app framework design.
-* **[Node Js](https://nodejs.org/en/)** -
 * **[Webpack](https://webpack.github.io/)** - webpack is a module bundler for modern JavaScript applications.
 * **[Express](https://expressjs.com/)** - It is used in serving the app.
 * **[Babel](https://babeljs.io/)** - It is used in transpiling es6 code to browser compactible code.
@@ -27,6 +26,9 @@
 * Clone the repository using your favorite terminal with the command `git clone https://github.com/Seunadex/Headlines.git`
 * Navigate into the directory and run `$ cd headlines`
 * Install all dependencies by running `$ npm install`
+* Goto **[google developer](console.developer.google.com)** site, register/create your app and obtain your client ID.
+* Replace `Your_client_id` with your client ID inside the `.example.env` file.
+* Remove `.example` from the filename and save.
 * Start the app by running `$ npm start`
 
 ## Tests
@@ -36,15 +38,22 @@
 ## Limitations
 * User can only login with google,
 * User can not view article in-app,
-* User can not set favorite new.
+* User can not save favorite news.
 
 ## FAQ
 * Can I contribute?
-  * Absolutely yes.
+  * Absolutely yes, check `How to contribute` below.
 
 ## How to contribute
-* Fork the repo
-* Create a pull request
+* Fork the repo.
+* Open a new branch for the feature to add.
+* Follow the correct style guide **[Airbnb](https://github.com/airbnb/javascript/tree/master/react)** for consistency.
+* Use the `eslint configuration` in this app.
+* Create a pull request.
+  * Write a short description of what the PR does.
+  * Write areas of the app that is affected by the PR.
+  * Provide a screenshot (if applicable).
+  * Write how to manually test the feature.
 
 ## License
 (The MIT License)

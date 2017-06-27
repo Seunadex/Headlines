@@ -17,7 +17,7 @@ class Login extends Component {
     const responseGoogle = (response) => {
       User.login(response);
       browserHistory.push('/');
-      window.location.reload();
+      location.reload();
     };
     return (
       <div className="outline">

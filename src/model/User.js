@@ -20,14 +20,11 @@ class User {
    *
    */
   login(response) {
-    return new Promise((resolve) => {
-      const user = response.profileObj;
-      localStorage.setItem('current_user', user.givenName);
-      localStorage.setItem('current_user_image', user.imageUrl);
-      this.isLoggedIn = true;
-      this.userDetails();
-      resolve();
-    });
+    const user = response.profileObj;
+    localStorage.setItem('current_user', user.givenName);
+    localStorage.setItem('current_user_image', user.imageUrl);
+    this.isLoggedIn = true;
+    this.userDetails();
   }
   /**
    * @description logs the user out.

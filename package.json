@@ -9,6 +9,26 @@
     "build": "webpack",
     "watch": "webpack -d -w"
   },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/__mock__/localStorageMock.js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/src/**.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**",
+      "!**/src/actions/RefineNews.js",
+      "!**/src/actions/RefineSources.js",
+      "!**/src/main.jsx",
+      "!**/src/Router.js"
+    ]
+  },
   "author": "Seun Adekunle",
   "license": "MIT",
   "dependencies": {
@@ -20,7 +40,6 @@
     "express": "^4.15.3",
     "flux": "^3.1.2",
     "history": "^4.6.1",
-    "js-cookie": "^2.1.4",
     "keymirror": "^0.1.1",
     "node-env-file": "^0.1.8",
     "prop-types": "^15.5.10",
@@ -68,7 +87,6 @@
     "sass-loader": "^6.0.5",
     "sinon": "^2.3.4",
     "style-loader": "^0.18.1",
-    "uglifyjs-webpack-plugin": "^0.4.3",
     "url-loader": "^0.5.8",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"

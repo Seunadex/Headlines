@@ -65,17 +65,6 @@ class NewsArticles extends Component {
   }
 
   /**
-   *
-   * @desc calls getArticles method
-   * @return represents the value of the articles property
-   *
-   * @memberof NewsArticles
-   */
-  getInitialArticlesState() {
-    return this.getArticles();
-  }
-
-  /**
    * 
    * @desc makes an api call to sort news articles
    * @param {string} event represents the onChange event that triggers change in user input on the drop-down options.
@@ -98,7 +87,7 @@ class NewsArticles extends Component {
       return (<div>
         <Header />
         <div className="loader" />
-        <h1 className='text-center'>Loading...</h1>
+        <h2 className='text-center'>Loading...</h2>
       </div>);
     }
     return (
