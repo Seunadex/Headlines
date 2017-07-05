@@ -29,17 +29,18 @@ describe('ArticleStore', () => {
     const allNews = articleStore.getAll().length;
     expect(allNews).toBe(0);
   });
-  it('contain function addChangeListener', () => {
-    callback = () => 'something';
-    expect(articleStore.addChangeListener(callback)).toEqual(undefined);
-  });
-
   it('should fetch correct article ', () => {
     callback(fetchNews);
     const keys = Object.keys(articleStore.getAll());
     expect(keys.length).toBe(2);
     expect(articleStore.getAll()[keys[1]].author).toEqual('GREGORY KATZ and DANICA KIRKA');
   });
+
+  it('contain function addChangeListener', () => {
+    callback = () => 'something';
+    expect(articleStore.addChangeListener(callback)).toEqual(undefined);
+  });
+
   it('contain function emitChange', () => {
     expect(articleStore.emitChange()).toEqual(undefined);
   });

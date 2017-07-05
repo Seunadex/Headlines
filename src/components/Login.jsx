@@ -6,8 +6,6 @@ import User from '../model/User';
 const clientId = process.env.CLIENT_ID;
 
 /**
- * 
- * 
  * @class Login
  * @extends {Component}
  */

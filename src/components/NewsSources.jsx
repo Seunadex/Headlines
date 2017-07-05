@@ -18,7 +18,7 @@ import Search from './NewsSearch';
 class NewsSources extends Component {
 
   /**
-   * Creates an instance of NewsSources.
+   * @desc Creates an instance of NewsSources.
    *
    * @memberof NewsSources
    */
@@ -91,7 +91,6 @@ class NewsSources extends Component {
     this.setState({ search: event.target.value });
   }
 
-// render function
   render() {
     /**
      * filter this.state.sources content based on search criteria(this.state.search)

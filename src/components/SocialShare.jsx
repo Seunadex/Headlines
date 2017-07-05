@@ -1,7 +1,6 @@
 import React from 'react';
 import {
 ShareButtons,
-ShareCounts,
 generateShareIcon,
 } from 'react-share';
 import PropTypes from 'prop-types';
@@ -12,13 +11,6 @@ FacebookShareButton,
 GooglePlusShareButton,
 LinkedinShareButton,
 } = ShareButtons;
-
-const {
-TwitterShareCount,
-FacebookShareCount,
-GooglePlusShareCount,
-LinkedinShareCount,
-} = ShareCounts;
 
 const TwitterIcon = generateShareIcon('twitter');
 const FacebookIcon = generateShareIcon('facebook');
@@ -41,9 +33,6 @@ const Share = (props) => {
             round
           />
         </TwitterShareButton>
-        <div className="share-count">
-            &nbsp;
-        </div>
       </div>
 
       <div className="social-share face">
@@ -57,12 +46,6 @@ const Share = (props) => {
             round
           />
         </FacebookShareButton>
-        <FacebookShareCount
-          url={shareUrl}
-          className="share-count"
-        >
-          {count => count}
-        </FacebookShareCount>
       </div>
 
 
@@ -77,12 +60,6 @@ const Share = (props) => {
             round
           />
         </GooglePlusShareButton>
-        <GooglePlusShareCount
-          url={shareUrl}
-          className="share-count"
-        >
-          {count => count}
-        </GooglePlusShareCount>
       </div>
 
 
@@ -97,12 +74,6 @@ const Share = (props) => {
             round
           />
         </LinkedinShareButton>
-        <LinkedinShareCount
-          url={shareUrl}
-          className="share-count"
-        >
-          {count => count}
-        </LinkedinShareCount>
       </div>
     </div>
 
