@@ -65,17 +65,6 @@ class NewsArticles extends Component {
   }
 
   /**
-   *
-   * @desc calls getArticles method
-   * @return represents the value of the articles property
-   *
-   * @memberof NewsArticles
-   */
-  getInitialArticlesState() {
-    return this.getArticles();
-  }
-
-  /**
    * 
    * @desc makes an api call to sort news articles
    * @param {string} event represents the onChange event that triggers change in user input on the drop-down options.
@@ -85,6 +74,7 @@ class NewsArticles extends Component {
   handleSort(event) {
     event.preventDefault();
     const targetVal = event.target.value;
+    const { params } = this.props;
     ArticleAction.fetchNews(params.id, targetVal);
   }
 
@@ -97,7 +87,7 @@ class NewsArticles extends Component {
       return (<div>
         <Header />
         <div className="loader" />
-        <h1 className='text-center'>Loading...</h1>
+        <h2 className='text-center'>Loading...</h2>
       </div>);
     }
     return (
@@ -146,6 +136,10 @@ class NewsArticles extends Component {
                         <CardText>{news.description}</CardText>
                       </CardBlock>
                     </Card>
+                    <div className="share-desc">
+                      <h6>Share Article</h6>
+                      <i className="fa fa-hand-o-down" aria-hidden="true"></i>
+                    </div>
                     <Share share={news.href} title={news.header} />
                   </Col>
                 </a>

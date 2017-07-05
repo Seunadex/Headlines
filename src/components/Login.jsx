@@ -1,34 +1,21 @@
 import React, { Component } from 'react';
+import { browserHistory } from 'react-router';
 import GoogleLogin from 'react-google-login';
-import createHistory from 'history/createBrowserHistory';
 import User from '../model/User';
-
-const history = createHistory({
-    /**
-     * Cause a full page refreshes
-     */
-  forceRefresh: true,
-});
 
 const clientId = process.env.CLIENT_ID;
 
 /**
- * 
- * 
  * @class Login
  * @extends {Component}
  */
 class Login extends Component {
-  componentWillMount() {
-    if (User.isLoggedIn) {
-      history.push('/');
-    }
-  }
 
   render() {
     const responseGoogle = (response) => {
       User.login(response);
-      window.location.reload();
+      browserHistory.push('/');
+      location.reload();
     };
     return (
       <div className="outline">

@@ -18,7 +18,7 @@ import Search from './NewsSearch';
 class NewsSources extends Component {
 
   /**
-   * Creates an instance of NewsSources.
+   * @desc Creates an instance of NewsSources.
    *
    * @memberof NewsSources
    */
@@ -59,14 +59,6 @@ class NewsSources extends Component {
       sources: SourcesState.sources || [],
     });
   }
-/**
- * @function
- * @returns {object} array
- * @description calls getNewsSources
- **/
-  getInitialSourcesState() {
-    return getNewsSources();
-  }
   /**
    * @desc links the state of the sources property of
    *  this component to the state of the news sources store.
@@ -99,7 +91,6 @@ class NewsSources extends Component {
     this.setState({ search: event.target.value });
   }
 
-// render function
   render() {
     /**
      * filter this.state.sources content based on search criteria(this.state.search)
@@ -195,7 +186,9 @@ Col.propTypes = {
 };
 
 CardBlock.propTypes = {
-  // Pass in a Component to override default element
+/**
+ * Pass in a Component to override default element
+ */
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
 };

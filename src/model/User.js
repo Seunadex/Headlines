@@ -1,5 +1,3 @@
-import Cookies from 'js-cookie';
-
 /**
  *
  *
@@ -23,11 +21,8 @@ class User {
    */
   login(response) {
     const user = response.profileObj;
-    Cookies.set('user_data', {
-      name: user.givenName,
-      email: user.email,
-      imageUrl: user.imageUrl,
-    });
+    localStorage.setItem('current_user', user.givenName);
+    localStorage.setItem('current_user_image', user.imageUrl);
     this.isLoggedIn = true;
     this.userDetails();
   }
@@ -37,21 +32,17 @@ class User {
    */
   logOut() {
     this.isLoggedIn = false;
-    Cookies.remove('user_data');
+    localStorage.removeItem('current_user');
+    localStorage.removeItem('current_user_image');
   }
   /**
    * @description assigns User values
    * @returns {boolean}  true or false
    */
   userDetails() {
-    if (Cookies.get('user_data')) {
-      /**
-       * user details to be treated as a JSON object
-       */
-      const data = JSON.parse(Cookies.get('user_data'));
-      this.name = data.name;
-      this.email = data.email;
-      this.imageUrl = data.imageUrl;
+    if (localStorage.current_user) {
+      this.name = localStorage.current_user;
+      this.imageUrl = localStorage.current_user_image;
       return true;
     }
     return false;

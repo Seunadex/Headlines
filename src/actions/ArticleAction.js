@@ -2,61 +2,15 @@ import axios from 'axios';
 import Constants from '../constants/Constants';
 import Dispatcher from '../dispatcher/AppDispatcher';
 import Api from '../utils/Api';
-
-/**
- *
- * @desc Contains parameters to extract from API data.
- * @class ArticleProperties
- */
-class ArticleProperties {
-  /**
-   * Creates an instance of ArticleProperties with a news property.
-   *
-   * @memberof ArticleProperties
-   */
-  constructor() {
-    this.news = [];
-  }
-
-/**
- *
- * @param {string} title
- * @param {string} description
- * @param {string} meta
- * @param {string} link
- * @param {string} image
- * @returns {object}
- * @memberof ArticleProperties
- */
-  add(title, description, meta, link, image) {
-    this.news.push({ href: link,
-      header: title,
-      description,
-      meta,
-      image,
-    });
-  }
-
-  /**
-   *
-   * @desc returns the value of news property
-   * @returns {object}
-   *
-   */
-  get() {
-    return this.news;
-  }
-
-
-}
-export default ArticleProperties;
+import ArticleProps from '../actions/ArticleProps';
 
 const ArticleAction = {
 
 /**
- * Fetch Articles
+ * @desc Fetch Articles
  * @param {string} id represents the name of the source
  * @param {string} val represents the value of the sortBysAvailable
+ *  @returns {object} gets the news from the API.
  */
   fetchNews: (id, val) => {
     /**
@@ -69,11 +23,11 @@ const ArticleAction = {
     Api.addQuery('source', source);
     return axios.get(Api.getLink())
       .then((responseText) => {
-        const feeds = new ArticleProperties();
+        const feeds = new ArticleProps();
         if (responseText.statusText === 'OK') {
           const articles = responseText.data.articles;
           articles.forEach((article) => {
-            feeds.add(article.title,
+            feeds.addArticleParam(article.title,
                 article.description,
                 article.author,
                 article.url,
