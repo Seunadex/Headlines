@@ -30,9 +30,7 @@ describe('Test for News Sources', () => {
     it('should exist', () => {
       expect(wrapper).to.be.present();
     });
-    it('should contain a div element', () => {
-      expect(wrapper.find('div')).to.be.present();
-    });
+    
     it('should contain only one search node', () => {
       expect(wrapper.find('Search')).to.be.present();
       expect(wrapper.find('Search')).to.have.length(1);
@@ -61,15 +59,12 @@ describe('Test for News Sources', () => {
       wrapper.setProps({ sources: sampleSources.sources });
       expect(wrapper.node.props.sources).to.equal(sampleSources.sources);
     });
-    it('Should have a componentWillUnmount function', () => {
-      const componentWillUnmount = sinon.spy();
-      expect(componentWillUnmount.callCount).to.equal(0);
-    });
+    
     it('Should call onChange event', () => {
       wrapper.instance().onChange();
     });
 
-    it('Should be "cnn"', () => {
+    it('Should return "cnn"', () => {
       wrapper.instance().updateSearch(event);
       expect(wrapper.state().search).to.equal('cnn');
     });
@@ -77,10 +72,17 @@ describe('Test for News Sources', () => {
     it('Should call getSortValue', () => {
       wrapper.instance().getSortValue;
     });
+    it('Should have a componentWillUnmount function', () => {
+      const componentWillUnmount = sinon.spy();
+      expect(componentWillUnmount.callCount).to.equal(0);
+    });
 
     it('Should', () => {
         wrapper.unmount();
         expect(spyWillUnmount.calledOnce);
+    });
+    it('should contain a div element', () => {
+      expect(wrapper.find('div')).to.be.present();
     });
 });
 });

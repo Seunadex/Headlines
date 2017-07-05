@@ -136,6 +136,10 @@ class NewsArticles extends Component {
                         <CardText>{news.description}</CardText>
                       </CardBlock>
                     </Card>
+                    <div className="share-desc">
+                      <h6>Share Article</h6>
+                      <i className="fa fa-hand-o-down" aria-hidden="true"></i>
+                    </div>
                     <Share share={news.href} title={news.header} />
                   </Col>
                 </a>

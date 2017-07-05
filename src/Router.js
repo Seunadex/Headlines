@@ -5,6 +5,12 @@ import NewsSources from './components/NewsSources';
 import NewsArticles from './components/NewsArticles';
 import User from '../src/model/User';
 
+/**
+ *
+ *
+ * @class App
+ * @extends {Component}
+ */
 class App extends Component {
  constructor() {
   super ();

@@ -4,6 +4,7 @@ import expect from 'expect';
 import Dispatcher from '../../src/dispatcher/AppDispatcher';
 import ArticleAction from '../../src/actions/ArticleAction';
 import mockArticle from '../../__mock__/mockArticle.json';
+import ArticleProps from '../../src/actions/ArticleProps';
 
 describe('Article Action test', () => {
   let mockAxios;
