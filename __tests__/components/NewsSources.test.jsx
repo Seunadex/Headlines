@@ -81,8 +81,5 @@ describe('Test for News Sources', () => {
         wrapper.unmount();
         expect(spyWillUnmount.calledOnce);
     });
-    it('should contain a div element', () => {
-      expect(wrapper.find('div')).to.be.present();
-    });
 });
 });

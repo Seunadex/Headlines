@@ -24,7 +24,7 @@ describe(' Source Action test', () => {
     axios.get.restore();
     Dispatcher.dispatch.restore();
   });
-  test('should call axios and dispatcher at least once', () => {
+  it('should call axios and dispatcher at least once', () => {
     SourceAction.fetchSources().then(() => {
       expect(dispatchSpy).toHaveBeenCalled();
       expect(mockAxios.calledOnce).toBe(true);
@@ -36,7 +36,7 @@ describe(' Source Action test', () => {
       });
       expect(dispatchSpy.getCall(0).args[0].type).toBe('FETCH_SOURCES');
     });
-    test('should load news sources', () => SourceAction.fetchSources('al-jazeera-english')
+    it('should load news sources', () => SourceAction.fetchSources('al-jazeera-english')
     .then(() => {
       expect(dispatchSpy).toHaveBeenCalled();
       expect(dispatchSpy.mock.calls[0][0].actionName).toEqual(Constants.FETCH_SOURCES);
