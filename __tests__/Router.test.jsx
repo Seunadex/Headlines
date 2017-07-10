@@ -10,10 +10,6 @@ User.isLoggedIn = true;
 describe('<Router />', () => {
   const wrapper = shallow(<App />);
 
-  it('should properly run tests', () => {
-    expect(2)
-      .toBe(2);
-  });
   it('renders props correctly', () => {
     const component = shallow(<App name="app" />);
     expect(component.instance()
@@ -24,5 +20,9 @@ describe('<Router />', () => {
     wrapper.instance().requireAuth();
     User.isLoggedIn = false;
     wrapper.instance().verifyAuth();
+  });
+  it('should properly run tests', () => {
+    expect(2)
+      .toBe(2);
   });
 });
