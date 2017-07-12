@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Input, Card, CardText, CardBlock,
   CardTitle, CardSubtitle, Row, Col, Container } from 'reactstrap';
+import { hashHistory } from 'react-router';
 import PropTypes from 'prop-types';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
@@ -27,6 +28,9 @@ class NewsArticles extends Component {
     };
     this.onChange = this.onChange.bind(this);
     this.handleSort = this.handleSort.bind(this);
+  }
+  onClick() {
+    hashHistory.push('/');
   }
 
   /**
@@ -108,9 +112,7 @@ class NewsArticles extends Component {
                 </FormGroup>
               </Form>
             </Col>
-            <a type="button" href="/" className="btn btn-info back">
-                Back to Home
-            </a>
+            <button onClick={this.onClick} className="btn btn-info back">Back to Home</button>
           </Row>
         </Container>
 

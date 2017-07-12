@@ -1,12 +1,12 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 import User from '../../model/User';
 
 export function logOut (event) {
   event.preventDefault();
   localStorage.removeItem('current_user');
   localStorage.removeItem('current_user_image')
-  browserHistory.push('/#/login');
+  hashHistory.push('/#/login');
   location.reload();
 }
 
@@ -39,7 +39,7 @@ const Header = () => {
           </div>
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav">
-              <li><a href="/">Home</a></li>
+              <li><Link to="/">Home</Link></li>
             </ul>
             <ul className="nav navbar-nav navbar-right">
               <li>
@@ -57,10 +57,10 @@ const Header = () => {
                   <span className="caret" /></a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a href="/#/logout" onClick={logOut}>
+                    <Link to="/#/logout" onClick={logOut}>
                       <i className="fa fa-sign-out" aria-hidden="true" />
                   Sign Out
-                </a>
+                </Link>
                   </li>
                 </ul>
               </li>
