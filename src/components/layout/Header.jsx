@@ -1,12 +1,12 @@
 import React from 'react';
-import { hashHistory, Link } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import User from '../../model/User';
 
 export function logOut (event) {
   event.preventDefault();
   localStorage.removeItem('current_user');
   localStorage.removeItem('current_user_image')
-  hashHistory.push('/#/login');
+  browserHistory.push('/#/login');
   location.reload();
 }
 
