@@ -23,7 +23,7 @@ class SourceProps {
    * @returns {void} push the Source metadata into the empty array created
    * @memberof SourceProps
    */
-  addSourceParam(index, id, name, description, category, sortBysAvailable) {
+  appendSourceParam(index, id, name, description, category, sortBysAvailable) {
     this.sources.push({
       href: `/articles/${id}`,
       id: index,

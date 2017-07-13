@@ -1,5 +1,4 @@
-import chai, { expect } from 'chai';
-import chaiEnzyme from 'chai-enzyme';
+import expect from 'expect';
 import React from 'react';
 import sinon from 'sinon';
 import { mount } from 'enzyme';
@@ -13,7 +12,6 @@ window.localStorage = localStorageMock;
 
 jest.dontMock('../../src/components/NewsArticles.jsx');
 let wrapper;
-chai.use(chaiEnzyme());
 
 describe('Test for News Articles', () => {
   const wrapper = mount(<NewsArticles fetchNews={ArticleAction.fetchNews} />);
@@ -21,35 +19,39 @@ describe('Test for News Articles', () => {
 
   describe('#NewsArticles', () => {
     it('component should exist', () => {
-      expect(wrapper).to.be.present();
+      expect(wrapper).toBeTruthy();
+    });
+     it('Should call onClick event', () => {
+      wrapper.instance().onClick();
+      const onClick = jest.fn();
+      const component = mount(<NewsArticles onClick={onClick} />)
+      expect(component.props().onClick).toEqual(onClick);
     });
 
     it('should fetch data on component mount', () => {
       const fetchNews = sinon.stub();
-      expect(fetchNews.callCount).to.equal(0);
+      expect(fetchNews.callCount).toEqual(0);
     });
 
-    it('should have an onChange function', () => {
-    const onChange = jest.fn();
-    const component = mount(<NewsArticles onChange={onChange} />);
-    expect(component.props().onChange).to.equal(onChange);
+    it('should call an onChange function', () => {
+      wrapper.instance().onChange();
+      const onChange = jest.fn();
+      const component = mount(<NewsArticles onChange={onChange} />);
+      expect(component.props().onChange).toEqual(onChange);
   }); 
 
-  it('should have a removeChangeListener function', () => {
+  it('should call a removeChangeListener function', () => {
     let callback = () => {
       return 'something';
     };
-    expect(articleStore.removeChangeListener(callback)).to.equal(undefined);
+    expect(articleStore.removeChangeListener(callback)).toEqual(undefined);
   });
 
   it('Should have a componentWillUnmount function', () => {
     const componentWillUnmount = sinon.spy();
-    expect(componentWillUnmount.callCount).to.equal(0);
+    expect(componentWillUnmount.callCount).toEqual(0);
   });
-
-  it('Should call onChange event', () => {
-      wrapper.instance().onChange();
-    });
+ 
 });
 
 describe('Unmount NewsArticles',() => {

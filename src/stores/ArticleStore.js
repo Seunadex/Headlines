@@ -24,8 +24,8 @@ class ArticleStore extends EventEmitter {
 
   /**
    *
-   * @desc gets the value of the news property
-   * @returns {object}
+   * @description gets the value of the news property
+   * @return {object} returns an object containing the news sources
    * @memberof ArticleStore
    */
   getAll() {
@@ -35,7 +35,7 @@ class ArticleStore extends EventEmitter {
   /**
    *
    * @description notify the news articles component of changes in state.
-   * @return {void}
+   * @returns {void}
    * @memberof articleStore
    */
   emitChange() {
@@ -58,7 +58,8 @@ class ArticleStore extends EventEmitter {
    *
    * @desc removes the listener added by addChangeListener,
    * terminates communication with the articles component.
-   * @param  callback
+   * @param  {function} callback
+   * @returns {void}
    * @memberof ArticleStore
    */
   removeChangeListener(callback) {

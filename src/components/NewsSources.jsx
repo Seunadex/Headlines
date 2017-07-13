@@ -10,7 +10,7 @@ import Search from './NewsSearch';
 
 
 /**
- * @desc represents NewsSources component
+ * @description represents NewsSources component
  *
  * @class NewsSources
  * @extends {Component}
@@ -18,7 +18,7 @@ import Search from './NewsSearch';
 class NewsSources extends Component {
 
   /**
-   * @desc Creates an instance of NewsSources.
+   * @description Creates an instance of NewsSources.
    *
    * @memberof NewsSources
    */
@@ -60,7 +60,7 @@ class NewsSources extends Component {
     });
   }
   /**
-   * @desc links the state of the sources property of
+   * @description links the state of the sources property of
    *  this component to the state of the news sources store.
    * @returns {object} array of news sources
    * @memberof NewsSources
@@ -73,7 +73,7 @@ class NewsSources extends Component {
 
   /**
    *
-   * @desc passes sort parameter via route
+   * @description passes sort parameter via route
    * @param {string} href news sources id and sort type are passed as a string.
    *
    * @memberof NewsSources
@@ -82,7 +82,7 @@ class NewsSources extends Component {
     hashHistory.push(href);
   }
   /**
-   * @desc update the state of search property
+   * @description update the state of search property
    * @param {function} event represents the onchange event
    *  that triggers change in user input on the search bar.
    * @memberof NewsSources
@@ -93,7 +93,7 @@ class NewsSources extends Component {
 
   render() {
     /**
-     * filter this.state.sources content based on search criteria(this.state.search)
+     * @description filter this.state.sources content based on search criteria(this.state.search)
      */
     const filteredSources = this.state.sources.filter(source => source.title.toLowerCase()
     .indexOf(this.state.search.toLowerCase()) !== -1);
@@ -187,7 +187,7 @@ Col.propTypes = {
 
 CardBlock.propTypes = {
 /**
- * Pass in a Component to override default element
+ * @description Pass in a Component to override default element
  */
   tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   className: PropTypes.string,
