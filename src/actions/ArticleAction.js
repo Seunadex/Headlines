@@ -27,7 +27,7 @@ const ArticleAction = {
         if (responseText.statusText === 'OK') {
           const articles = responseText.data.articles;
           articles.forEach((article) => {
-            feeds.addArticleParam(article.title,
+            feeds.appendArticleParam(article.title,
                 article.description,
                 article.author,
                 article.url,

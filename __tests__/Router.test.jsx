@@ -21,8 +21,4 @@ describe('<Router />', () => {
     User.isLoggedIn = false;
     wrapper.instance().verifyAuth();
   });
-  it('should properly run tests', () => {
-    expect(2)
-      .toBe(2);
-  });
 });

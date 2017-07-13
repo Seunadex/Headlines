@@ -23,7 +23,7 @@ class ArticleProps {
  * @returns {object} an object containing some key value pair data.
  * @memberof ArticleProps
  */
-  addArticleParam(title, description, meta, link, image) {
+  appendArticleParam(title, description, meta, link, image) {
     this.news.push({ href: link,
       header: title,
       description,

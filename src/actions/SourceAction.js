@@ -14,7 +14,7 @@ const SourceAction = {
                 if (responseText.statusText === 'OK') {
                   const sources = responseText.data.sources;
                   sources.forEach((source, index) => {
-                    sourceProps.addSourceParam(index,
+                    sourceProps.appendSourceParam(index,
                         source.id,
                         source.name,
                         source.description,

@@ -25,7 +25,7 @@ class SourceStore extends EventEmitter {
   /**
    *
    * @desc gets the value of the sources property
-   * @returns {object}
+   * @returns {object} returns an array of the news sources
    * @memberof SourceStore
    */
   getAll() {
@@ -57,7 +57,8 @@ class SourceStore extends EventEmitter {
    *
    * @desc removes the listener added by addChangeListener,
    * terminates communication with the sources componennt.
-   * @param callback use to stop state update listens for request from the sources component.
+   * @param {function} callback use to stop state update,
+   * listens for request from the sources component.
    * @returns {void}
    * @memberof SourceStore
    */
