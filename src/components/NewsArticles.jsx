@@ -7,7 +7,7 @@ import Header from './layout/Header';
 import Footer from './layout/Footer';
 import articleStore from '../stores/ArticleStore';
 import ArticleAction from '../actions/ArticleAction';
-import Share from './SocialShare';
+import ArticleCard from './ArticleCard';
 
 
 /**
@@ -87,6 +87,7 @@ class NewsArticles extends Component {
     const sortOrder = params.sort.split(',');
     const option = sortOrder.map((type, index) =>
       <option value={type} key={index}> {type} </option>);
+
     if (!this.state.articles.length) {
       return (<div>
         <Header />
@@ -99,7 +100,7 @@ class NewsArticles extends Component {
         <Header />
         <Container>
           <Row>
-            <Col xs="12" md="4">
+            <Col xs="12" sm="12" md="4">
               <h1 className="params-uppercase title">{params.id}</h1>
             </Col>
 
@@ -119,31 +120,9 @@ class NewsArticles extends Component {
         <Container fluid className="justify-content-center">
           <Row>
             {this.state.articles.map((news, index) => {
-              const myStyle = {
-                height: '130px',
-                background: `url(${news.image}) center center`,
-                width: '100%',
-                backgroundSize: 'cover',
-              };
               return (
                 <a href={news.href} key={index} rel="noopener noreferrer" target="_blank" >
-                  <Col className="col-xs-12 col-sm-6 col-md-4 article-frame">
-                    <Card>
-                      <CardBlock>
-                        <CardTitle className="title">{news.meta}</CardTitle>
-                        <CardSubtitle className="subtitle">{news.header}</CardSubtitle>
-                      </CardBlock>
-                      <div style={myStyle} />
-                      <CardBlock>
-                        <CardText>{news.description}</CardText>
-                      </CardBlock>
-                    </Card>
-                    <div className="share-desc">
-                      <h6>Share Article</h6>
-                      <i className="fa fa-hand-o-down" aria-hidden="true"></i>
-                    </div>
-                    <Share share={news.href} title={news.header} />
-                  </Col>
+                  <ArticleCard news={news} />
                 </a>
               );
             })}

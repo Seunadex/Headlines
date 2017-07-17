@@ -7,6 +7,7 @@ import SourceAction from '../actions/SourceAction';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
 import Search from './NewsSearch';
+import SourceCard from './SourceCard';
 
 
 /**
@@ -26,12 +27,13 @@ class NewsSources extends Component {
     super();
     this.state = {
       sources: [],
-      search: '',
+      search: ''
     };
 
     this.getNewsSources = this.getNewsSources.bind(this);
     this.onChange = this.onChange.bind(this);
     this.updateSearch = this.updateSearch.bind(this);
+    this.getSortValue = this.getSortValue.bind(this);
   }
 
   /**
@@ -97,31 +99,9 @@ class NewsSources extends Component {
      */
     const filteredSources = this.state.sources.filter(source => source.title.toLowerCase()
     .indexOf(this.state.search.toLowerCase()) !== -1);
+
     const newsNode = filteredSources.map(source => (
-      <Col xs="12" sm="6" md="4" key={source.id}>
-        <Card className="card-row">
-          <div className="text-center title"><h2>{source.title}</h2></div>
-          <CardBlock>
-            <CardText className="description">{source.description.substr(0, 200)}...</CardText>
-            <div className="float-left">
-              <CardText className="category">
-                <span><strong>Category</strong>
-                  <i
-                    className="fa fa-angle-double-right"
-                    aria-hidden="true"
-                  /> {source.category}</span>
-              </CardText>
-            </div>
-            <div>
-              <Button
-                color="info"
-                className="view"
-                onClick={this.getSortValue.bind(this, `${source.href}/${source.sortBysAvailable}`)}
-              >View Headlines</Button>
-            </div>
-          </CardBlock>
-        </Card>
-      </Col>
+      <SourceCard source={source} key={source.id} getSortValue={this.getSortValue} />
           ));
     let output = {};
     if (!this.state.sources.length) {

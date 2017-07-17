@@ -20,6 +20,8 @@ class SourceStore extends EventEmitter {
   constructor() {
     super();
     this.sources = [];
+    this.errorMessage = {};
+    this.getError = this.getError.bind(this);
   }
 
   /**
@@ -40,6 +42,16 @@ class SourceStore extends EventEmitter {
    */
   emitChange() {
     this.emit(CHANGE_EVENT);
+  }
+
+/**
+ *
+ *
+ * @returns {string} returns error message
+ * @memberof SourceStore
+ */
+  getError() {
+    return this.errorMessage;
   }
 
   /**
@@ -63,7 +75,7 @@ class SourceStore extends EventEmitter {
    * @memberof SourceStore
    */
   removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback);
+    this.on(CHANGE_EVENT, callback);
   }
 }
 const sourceStore = new SourceStore();
@@ -73,6 +85,10 @@ Dispatcher.register((payload) => {
     case Constants.FETCH_SOURCES:
       sourceStore.sources = payload.sources;
       sourceStore.emitChange();
+      break;
+    case Constants.GET_ERROR:
+      this.message = payload.message;
+      sourceStore.on('error', this.getError);
       break;
 
     default:

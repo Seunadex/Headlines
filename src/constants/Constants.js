@@ -8,6 +8,7 @@ const Constants = keyMirror({
      */
   fetchSources: 'FETCH_SOURCES',
   fetchNews: 'FETCH_NEWS',
+  getError: 'GET_ERROR'
 });
 
 export default Constants;

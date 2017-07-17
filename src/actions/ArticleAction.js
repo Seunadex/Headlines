@@ -9,15 +9,15 @@ const ArticleAction = {
 /**
  * @desc Fetch Articles
  * @param {string} id represents the name of the source
- * @param {string} val represents the value of the sortBysAvailable
+ * @param {string} sortByType represents the type of the sortBysAvailable
  *  @returns {object} gets the news from the API.
  */
-  fetchNews: (id, val) => {
+  fetchNews: (id, sortByType) => {
     /**
      * @returns {string} checks if the val exist
      * @function reset the link
      */
-    const source = val ? `${id}&sortBy=${val}` : `${id}`;
+    const source = sortByType ? `${id}&sortBy=${sortByType}` : `${id}`;
     Api.resetQuery();
 
     Api.addQuery('source', source);
@@ -40,6 +40,11 @@ const ArticleAction = {
             news: feeds.get(),
           });
         }
+      }).catch((errorMessage) => {
+        Dispatcher.dispatch({
+          actionName: Constants.GET_ERROR,
+          errorMessage
+        });
       });
   },
 };

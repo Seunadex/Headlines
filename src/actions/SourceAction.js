@@ -28,6 +28,11 @@ const SourceAction = {
                     sources: sourceProps.get(),
                   });
                 }
+              }).catch((errorMessage) => {
+                Dispatcher.dispatch({
+                  actionName: Constants.GET_ERROR,
+                  errorMessage
+                });
               });
   },
 };

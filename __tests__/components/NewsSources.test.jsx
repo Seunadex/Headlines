@@ -51,7 +51,6 @@ describe('Test for News Sources', () => {
   }); 
 });
   describe("NewsSources", () => {
-  
     it('allows us to set props', () => {
       expect(wrapper.node.props.search).to.equal('');
       wrapper.setProps({ search: 'latest' });

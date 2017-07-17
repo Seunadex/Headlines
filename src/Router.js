@@ -4,6 +4,7 @@ import Login from './components/Login';
 import NewsSources from './components/NewsSources';
 import NewsArticles from './components/NewsArticles';
 import User from '../src/model/User';
+import PageNotFound from './components/NotFound';
 
 /**
  *
@@ -44,6 +45,7 @@ render() {
          <Route path="/" component={NewsSources} onEnter={this.requireAuth} />
          <Route path="/articles/:id/:sort" component={NewsArticles} onEnter={this.requireAuth} />
          <Route path="/login" component={Login} onEnter={this.verifyAuth} />
+         <Route path="*" component={PageNotFound} onEnter={this.requireAuth} />
        </Router>
      </div>
   );
