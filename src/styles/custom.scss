@@ -224,6 +224,11 @@ div.social-share {
 *end
 **/
 
+.error {
+	text-align: center;
+	color: $white;
+}
+
 .loader {
 	-webkit-animation: spin 2s linear infinite;
 	animation: spin 2s linear infinite;

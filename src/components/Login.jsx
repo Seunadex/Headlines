@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
+import { hashHistory } from 'react-router';
 import GoogleLogin from 'react-google-login';
 import User from '../model/User';
 
@@ -14,8 +14,7 @@ class Login extends Component {
   render() {
     const responseGoogle = (response) => {
       User.login(response);
-      browserHistory.push('/');
-      location.reload();
+      hashHistory.push('/');
     };
     return (
       <div className="outline">
